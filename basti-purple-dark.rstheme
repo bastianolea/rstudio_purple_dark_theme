@@ -1,13 +1,12 @@
-/* rsthemes 0.4.0 */
-/* https://github.com/gadenbuie/rsthemes */
-/* rs-theme-name: base16 Purple Dark */
+/* rs-theme-name: Basti Purple Dark */
+/* https://bastianolea.rbind.io/ */
 /* Default Dark by Chris Kempson, modified by Bastián Olea */
 /* rs-theme-is-dark: TRUE */
 
 
 .ace_gutter {
   background: #1d1d1d;
-  color: rgba(248, 248, 248, 0.5);
+  color: #444444;
 }
 
 .ace_print-margin {
@@ -17,30 +16,30 @@
 
 .ace_editor {
   background-color: #181818;
-  color: #E8E5E8;
+  color: #dcd4dd;
 }
 
 .rstudio-themes-flat.ace_editor_theme {
   background-color: #181818;
-  color: #E8E5E8;
+  color: #dcd4dd;
 }
 
 .rstudio-themes-flat.ace_editor_theme .profvis-flamegraph {
   background-color: #181818;
-  color: #E8E5E8;
+  color: #dcd4dd;
 }
 
 .rstudio-themes-flat .ace_editor_theme {
   background-color: #181818;
-  color: #E8E5E8;
+  color: #dcd4dd;
 }
 
 .rstudio-themes-flat.editor_dark.ace_editor_theme a {
-  color: #E8E5E8 !important;
+  color: #dcd4dd !important;
 }
 
 .rstudio-themes-flat .gwt-Label {
-  color: #E8E5E8;
+  color: #dcd4dd;
 }
 
 .ace_cursor {
@@ -97,7 +96,7 @@
 
 .ace_fold {
   background-color: #BA4786;
-  border: 1px solid #E8E5E8 !important;
+  border: 1px solid #dcd4dd !important;
 }
 
 .ace_indent-guide {
@@ -117,7 +116,7 @@
 
 .ace_keyword.ace_operator {
   font-style: normal;
-  color: #DB66B1;
+  color: #db57ab;
 }
 
 .ace_keyword.ace_other.ace_unit {
@@ -138,11 +137,11 @@
 }
 
 .ace_constant.ace_other {
-  color: #E8E5E8;
+  color: #dcd4dd;
 }
 
 .ace_support.ace_function {
-  color: #DB66B1;
+  color: #db57ab;
 }
 
 .ace_support.ace_constant {
@@ -159,7 +158,7 @@
 }
 
 .ace_paren.ace_keyword.ace_operator {
-  color: #DB66B1;
+  color: #db57ab;
 }
 
 .ace_storage {
@@ -179,11 +178,11 @@
 }
 
 .ace_string {
-  color: #A57BBD;
+  color: #a274bb;
 }
 
 .ace_comment {
-  color: #6A606C; /*color: #947F97;*/
+  color: #6a606c; /*color: #947F97;*/
 }
 
 .ace_invisible {
@@ -199,12 +198,12 @@
 }
 
 .ace_identifier {
-  color: #E8E5E8;
+  color: #dcd4dd;
   background-color: inherit;
 }
 
 .ace_entity.ace_name.ace_function {
-  color: #DB66B1;
+  color: #db57ab;
 }
 
 .ace_entity.ace_name.ace_tag {
@@ -247,17 +246,17 @@
 }
 
 .ace_meta.ace_tag {
-  color: #DB66B1;
+  color: #db57ab;
 }
 
 .ace_markup.ace_heading,
 .ace_markup.ace_heading ~ .ace_heading {
   font-weight: 600;
-  color: #A57BBD;
+  color: #a274bb;
 }
 
 .ace_support.ace_function.ace_codebegin, .ace_support.ace_function.ace_codeend {
-  color: #DB66B1;
+  color: #db57ab;
 }
 
 .ace_markup.ace_href {
@@ -276,7 +275,7 @@
 /* background */
 .rstudio-themes-flat .rstudio-themes-dark-grey {
   background: #282828 !important;
-  color: #E8E5E8 !important;
+  color: #dcd4dd !important;
   /* collapsed toolbar on rstudio server */
 }
 
@@ -314,7 +313,7 @@ table.rstheme_tabLayoutCenter .gwt-Label,
 }
 
 .rstudio-themes-flat .rstudio-themes-dark-grey .gwt-TabLayoutPanelTab-selected .gwt-Label {
-  color: #E8E5E8;
+  color: #dcd4dd;
 }
 
 .rstudio-themes-flat .rstudio-themes-dark-grey .gwt-TabLayoutPanelTab:hover .rstheme_tabLayoutCenter {
@@ -326,7 +325,7 @@ table.rstheme_tabLayoutCenter .gwt-Label,
 }
 
 .rstudio-themes-flat .rstheme_toolbarWrapper button, .rstudio-themes-flat .rstheme_toolbarWrapper a, .rstudio-themes-flat .rstheme_toolbarWrapper div {
-  color: #E8E5E8 !important;
+  color: #dcd4dd !important;
 }
 
 .rstudio-themes-flat .rstudio-themes-dark-grey .gwt-SplitLayoutPanel-HDragger, .rstudio-themes-flat .rstudio-themes-dark-grey .gwt-SplitLayoutPanel-VDragger {
@@ -354,13 +353,13 @@ table.rstheme_tabLayoutCenter .gwt-Label,
 .rstudio-themes-flat .menuPopupMiddleCenter,
 .rstudio-themes-flat .suggestPopupMiddleCenter {
   background: #181818 !important;
-  color: #E8E5E8 !important;
+  color: #dcd4dd !important;
 }
 
 .rstudio-themes-flat .popupMiddleCenter .item.item-selected,
 .rstudio-themes-flat .menuPopupMiddleCenter .item.item-selected,
 .rstudio-themes-flat .suggestPopupMiddleCenter .item.item-selected {
-  color: #E8E5E8 !important;
+  color: #dcd4dd !important;
   background: #383838 !important;
 }
 
@@ -374,7 +373,7 @@ table.rstheme_tabLayoutCenter .gwt-Label,
 
 .rstudio-themes-flat .popupContent {
   background: #181818;
-  color: #E8E5E8;
+  color: #dcd4dd;
   border-color: #383838;
 }
 
@@ -393,7 +392,7 @@ table.rstheme_tabLayoutCenter .gwt-Label,
 }
 
 .rstudio-themes-flat .gwt-PopupPanel .popupContent table {
-  background: #E8E5E8;
+  background: #dcd4dd;
   border: 0;
 }
 
@@ -403,7 +402,7 @@ table.rstheme_tabLayoutCenter .gwt-Label,
 
 .rstudio-themes-flat.rstudio-themes-dark-menus .gwt-MenuItem.gwt-MenuItem-selected, .rstudio-themes-flat.rstudio-themes-dark-menus .gwt-MenuItem.gwt-MenuItem-selected > table {
   background: #383838;
-  color: #E8E5E8;
+  color: #dcd4dd;
 }
 
 /* datagrid */
@@ -430,17 +429,17 @@ table.rstheme_tabLayoutCenter .gwt-Label,
 /* Data Frame Preview */
 .dataTables_wrapper thead th {
   background-color: #2b2b2b !important;
-  color: #E8E5E8 !important;
+  color: #dcd4dd !important;
 }
 
 .dataTables_scrollBody table tbody td:first-child {
   background: #2b2b2b !important;
-  color: #E8E5E8 !important;
+  color: #dcd4dd !important;
 }
 
 .dataTables_info {
   background: #2b2b2b !important;
-  color: #E8E5E8 !important;
+  color: #dcd4dd !important;
 }
 
 /* scrollbars */
@@ -508,7 +507,7 @@ input#rstudio_command_palette_search {
 .rstudio-themes-flat .gwt-PopupPanel .popupContent #rstudio_command_palette_list [id*="rstudio_command_"] table .gwt-Label,
 .rstudio-themes-flat .gwt-PopupPanel .popupContent #rstudio_command_palette_list [id*="rstudio_command_"] table td {
   background-color: #181818;
-  color: #E8E5E8;
+  color: #dcd4dd;
 }
 
 .rstudio-themes-flat .gwt-PopupPanel .popupContent #rstudio_command_palette_list [id*="rstudio_command_"]:hover, .rstudio-themes-flat .gwt-PopupPanel .popupContent #rstudio_command_palette_list [id*="rstudio_command_"]:hover [id^="rstudio_command_entry"], .rstudio-themes-flat .gwt-PopupPanel .popupContent #rstudio_command_palette_list [id*="rstudio_command_"]:hover table .gwt-Label, .rstudio-themes-flat .gwt-PopupPanel .popupContent #rstudio_command_palette_list [id*="rstudio_command_"]:hover table td {
@@ -535,11 +534,11 @@ input#rstudio_command_palette_search {
 
 /* Rainbow Parenthesis */
 .rstudio-themes-dark .ace_paren_color_0 {
-  color: #DB66B1;
+  color: #db57ab;
 }
 
 .rstudio-themes-dark .ace_paren_color_1 {
-  color: #DB66B1;
+  color: #db57ab;
 }
 
 .rstudio-themes-dark .ace_paren_color_2 {
@@ -555,7 +554,7 @@ input#rstudio_command_palette_search {
 }
 
 .rstudio-themes-dark .ace_paren_color_5 {
-  color: #A57BBD;
+  color: #a274bb;
 }
 
 .rstudio-themes-dark .ace_paren_color_6 {
@@ -564,7 +563,7 @@ input#rstudio_command_palette_search {
 
 .terminal {
   background-color: #181818;
-  color: #E8E5E8;
+  color: #dcd4dd;
   font-feature-settings: "liga" 0;
   position: relative;
   user-select: none;
@@ -584,7 +583,7 @@ input#rstudio_command_palette_search {
 }
 
 .terminal:not(.focus) .terminal-cursor {
-  outline: 1px solid #E8E5E8;
+  outline: 1px solid #dcd4dd;
   outline-offset: -1px;
 }
 
@@ -604,7 +603,7 @@ input#rstudio_command_palette_search {
 }
 
 .xtermInvertColor {
-  color: #E8E5E8;
+  color: #dcd4dd;
 }
 
 .xtermInvertBgColor {
