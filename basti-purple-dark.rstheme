@@ -52,7 +52,7 @@
 }
 
 .ace_marker-layer .ace_selection {
-  background: rgba(216, 216, 216, 0.4);
+  background: rgba(216, 216, 216, 0.2);
 }
 
 .ace_marker-layer .ace_step {
@@ -65,11 +65,11 @@
 }
 
 .ace_marker-layer .ace_active-line {
-  background: rgba(11, 11, 11, 0.5);
+  background: rgba(11, 11, 11, 0.3);
 }
 
 .ace_marker-layer .ace_selected-word {
-  border: 1px solid rgba(216, 216, 216, 0.4);
+  border: 1px solid rgba(216, 216, 216, 0.2);
 }
 
 .ace_marker-layer .ace_foreign_line {
@@ -185,6 +185,10 @@
   color: #6a606c; /*color: #947F97;*/
 }
 
+.ace_ghost_text {
+  color: #5F5161; /* github copilot completions */
+}
+
 .ace_invisible {
   color: #585858;
 }
@@ -268,7 +272,7 @@
 }
 
 #rstudio_console_input .ace_marker-layer .ace_selection {
-  background: rgba(216, 216, 216, 0.4);
+  background: rgba(216, 216, 216, 0.2);
 }
 
 /* ---- RStudio Theme ---- */
