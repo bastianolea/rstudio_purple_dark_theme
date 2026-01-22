@@ -1,7 +1,60 @@
 /* rs-theme-name: Basti Purple Dark */
 /* https://bastianolea.rbind.io/ */
-/* Default Dark by Chris Kempson, modified by Bastián Olea */
+/* Default Dark by Chris Kempson, modified by Bastián Olea Herrera */
 /* rs-theme-is-dark: TRUE */
+
+
+.rstudio-themes-dark-grey .rstudio-themes-border, .rstudio-themes-dark-grey table.GNJ4OY0CFS>tbody>tr>td, .rstudio-themes-dark-grey .GNJ4OY0CFX>div:last-child, .rstudio-themes-dark-grey .rstheme_secondaryToolbar, .rstudio-themes-dark-grey .gwt-TabLayoutPanel>div>div.gwt-TabLayoutPanelTabs {
+    border-color: #000000;
+}
+
+.rstudio-themes-dark-grey .rstheme_minimizedWindowObject>div:last-child, .rstudio-themes-dark-grey .rstheme_toolbarWrapper, .rstudio-themes-dark-grey .GNJ4OY0CFX.GNJ4OY0CAQ div.GNJ4OY0CNP .GNJ4OY0CAU, .rstudio-themes-dark-grey .GNJ4OY0CFX.GNJ4OY0CAQ {
+    border-color: #000000;
+}
+
+.rstudio-themes-dark-grey .gwt-TabLayoutPanelTabs table.rstheme_tabLayoutCenter, .rstudio-themes-dark-grey .rstheme_minimizedWindowObject table.rstheme_tabLayoutCenter {
+    border-color: #000000;
+}
+
+.rstudio-themes-dark-grey .GNJ4OY0CBLD, .rstudio-themes-dark-grey .GNJ4OY0CBLD .GNJ4OY0CIKD {
+    border-color: #000000;
+}
+
+.rstudio-themes-dark-menus .search {
+    border-color: #454545;
+}
+
+.rstudio-themes-dark .GNJ4OY0CGW {
+    border-color: #606060;
+}
+
+.rstudio-themes-dark .GNJ4OY0CHW {
+    border-color: #606060;
+}
+
+.rstudio-themes-dark-grey .breadcrumb .GNJ4OY0CNJ {
+    background: linear-gradient(to right, #383838, rgba(78, 92, 104, 0));
+}
+
+.rstudio-themes-dark-menus .menuPopupMiddleCenter, .rstudio-themes-dark-menus .themedPopupPanel .popupMiddleCenter, .rstudio-themes-dark-menus .gwt-SuggestBoxPopup .suggestPopupMiddleCenter {
+    border: #404040;
+}
+
+.editor_dark .ace_editor_theme .GNJ4OY0CBJ {
+    color: #D9CDDA;
+}
+
+.rstudio-themes-dark-grey .rstudio-themes-background, .rstudio-themes-dark-grey .rstheme_toolbarWrapper, .rstudio-themes-dark-grey .gwt-TabLayoutPanelTabs .gwt-TabLayoutPanelTab-selected table.rstheme_tabLayoutCenter, .rstudio-themes-dark-grey .rstheme_secondaryToolbar, .rstudio-themes-dark-grey .GNJ4OY0CFX.GNJ4OY0CAQ div.GNJ4OY0CNP .GNJ4OY0CAU, .rstudio-themes-dark-grey .gwt-TabLayoutPanelContent, .rstudio-themes-dark-grey .gwt-TabLayoutPanel {
+    background: #383838;
+}
+
+.GNJ4OY0COWC button.rstudio-themes-inverts div {
+    margin-top: 1px;
+}
+
+.rstudio-themes-dark .gwt-TabLayoutPanelTabs .GNJ4OY0CIQ table.rstheme_tabLayoutCenter {
+    color: #DE7CBA;
+}
 
 
 .ace_gutter {
