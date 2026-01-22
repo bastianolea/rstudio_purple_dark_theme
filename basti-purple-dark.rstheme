@@ -56,6 +56,46 @@
     color: #DE7CBA;
 }
 
+.rstudio-themes-dark-grey td.GNJ4OY0CKDC, .rstudio-themes-dark-grey td.GNJ4OY0CIDC, .rstudio-themes-dark-grey td.GNJ4OY0CPDC, .rstudio-themes-dark-grey td.GNJ4OY0CMDC, .rstudio-themes-dark-grey .GNJ4OY0CHDC, .rstudio-themes-dark-grey .GNJ4OY0CCDC {
+    border-color: #000000;
+}
+
+.rstudio-themes-dark-grey .GNJ4OY0CCJD {
+    background-color: #282828 !important;
+    border-bottom: 1px solid #000000 !important;
+}
+
+.rstudio-themes-dark-menus.rstudio-tutorials a:link {
+    color: #DC57AB;
+}
+
+.rstudio-themes-dark-menus .rstudio-tutorials-install-learnr-link:link, .rstudio-themes-dark-menus .rstudio-tutorials-install-shiny-link:link {
+    color: #DC57AB;
+}
+
+:focus-visible:not(.gwt-MenuBar), input[type="checkbox"]:focus-visible {
+    outline: #A274BB solid 2px !important;
+    outline-offset: -1px !important;
+}
+
+.rstudio-themes-dark button.GNJ4OY0CB3>table:first-child {
+    border-color: #181818;
+    background: #919aa1;
+}
+
+.rstudio-themes-dark-menus .gwt-MenuItemSeparator .menuSeparatorInner {
+    border-color: #383838;
+}
+
+.rstudio-themes-dark .GNJ4OY0CHW {
+    background-color: #565656;
+    border-color: rgb(45, 60, 75);
+}
+
+
+
+
+
 
 .ace_gutter {
   background: #1d1d1d;
