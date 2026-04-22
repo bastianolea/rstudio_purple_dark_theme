@@ -3,6 +3,139 @@
 /* Default Dark by Chris Kempson, modified by Bastián Olea Herrera */
 /* rs-theme-is-dark: TRUE */
 
+/* botón posit assistant */
+.rstudio-themes-dark .GBQS1KEBJP.GBQS1KEBMW {
+    border-color: #282828;
+    background-color: #434343;
+}
+
+/* cajas de buscadores */
+.rstudio-themes-dark-menus .search {
+    border-color: #202020;
+}
+
+/* tabla de environment */
+
+.rstudio-themes-dark-grey td.GBQS1KEBKDC, .rstudio-themes-dark-grey td.GBQS1KEBIDC, .rstudio-themes-dark-grey td.GBQS1KEBPDC, .rstudio-themes-dark-grey td.GBQS1KEBMDC, .rstudio-themes-dark-grey .GBQS1KEBHDC, .rstudio-themes-dark-grey .GBQS1KEBCDC {
+    border-color: rgb(40 40 40);
+}
+
+/* texto archivos panel files */
+
+.editor_dark .ace_editor_theme .GBQS1KEBCJ {
+    color: #d9cdda;
+}
+
+/* color menus en opciones */
+.gwt-DialogBox-ModalDialog .dialogContent .gwt-Label {
+    color: #d8ccd9;
+}
+
+
+/* botones */
+
+.rstudio-themes-dark.rstudio-theme-aware-dialog button.gwt-Button>table:first-child {
+    background: rgb(159 161 162);
+    border-color: rgb(22 22 22);
+    color: #282828;
+    box-shadow: none;
+}
+
+.rstudio-themes-dark button.GBQS1KEBB3>table:first-child {
+    border-color: #161616;
+    background: #8d8d8e;
+}
+
+.rstudio-themes-dark.rstudio-theme-aware-dialog select, .rstudio-themes-dark.rstudio-theme-aware-dialog .gwt-ListBox {
+    background: rgb(160 161 162);
+    border-color: rgb(22 22 22);
+    color: #181818;
+}
+
+.rstudio-themes-dark.rstudio-theme-aware-dialog input[type="text"], .rstudio-themes-dark.rstudio-theme-aware-dialog input[type="password"], .rstudio-themes-dark.rstudio-theme-aware-dialog input[type="number"], .rstudio-themes-dark.rstudio-theme-aware-dialog textarea {
+    background: rgb(160 161 162);
+    border-color: rgb(24 24 24);
+    color: #181818;
+    color-scheme: dark;
+}
+
+.rstudio-themes-dark.rstudio-theme-aware-dialog select option {
+    background: rgb(160 161 162);
+    color: #181818;
+}
+
+.rstudio-themes-dark.rstudio-theme-aware-dialog select option:checked {
+    background: rgb(54 54 54);
+    color: #eee;
+}
+
+.rstudio-themes-dark.rstudio-theme-aware-dialog .GBQS1KEBIVB td.GBQS1KEBIVB {
+    background-color: rgb(40 40 40);
+    border-color: rgb(22 22 22);
+}
+
+
+/* ventana de ajustes */
+
+.rstudio-themes-dark.rstudio-theme-aware-dialog {
+    background: rgb(56 56 56);
+    border-color: #181818;
+    color: #d8ccd9;
+}
+
+.rstudio-themes-dark.rstudio-theme-aware-dialog .dialogTopCenter {
+    background: rgb(40 40 40);
+    border-bottom-color: rgb(22 22 22);
+}
+
+
+.rstudio-themes-dark.rstudio-theme-aware-dialog .GBQS1KEBKQ .gwt-TabLayoutPanelContentContainer {
+    background-color: rgb(40 40 40);
+    border-color: rgb(22 22 22);
+}
+
+.rstudio-themes-dark.rstudio-theme-aware-dialog .GBQS1KEBAM {
+    background-color: rgb(40 40 40);
+    border-color: rgb(22 22 22);
+}
+
+.rstudio-themes-dark.rstudio-theme-aware-dialog .GBQS1KEBDL {
+    background: rgb(24 24 24);
+}
+
+.rstudio-themes-dark.rstudio-theme-aware-dialog .GBQS1KEBKQ .gwt-TabLayoutPanelTab {
+    background: rgb(56 56 56);
+    border-color: rgb(30 29 29);
+}
+
+.rstudio-themes-dark.rstudio-theme-aware-dialog .GBQS1KEBKQ .gwt-TabLayoutPanelTab-selected {
+    background: rgb(31 32 32);
+    color: #eee;
+}
+
+
+/* borde de paneles */
+
+.rstudio-themes-dark-grey .rstudio-themes-border, .rstudio-themes-dark-grey table.GBQS1KEBJS>tbody>tr>td, .rstudio-themes-dark-grey .GBQS1KEBKX>div:last-child, .rstudio-themes-dark-grey .rstheme_secondaryToolbar, .rstudio-themes-dark-grey .gwt-TabLayoutPanel>div>div.gwt-TabLayoutPanelTabs {
+    border-color: rgb(22 22 22);
+}
+
+.rstudio-themes-dark-grey .GBQS1KEBKLD, .rstudio-themes-dark-grey .GBQS1KEBKLD .GBQS1KEBBLD {
+    border-color: rgb(22 22 22);
+}
+
+
+
+/* fade de texto de ruta en panel archivos */
+
+.rstudio-themes-dark-grey .breadcrumb .GBQS1KEBOJ {
+    background: linear-gradient(to right, rgb(56 56 56), rgba(78, 92, 104, 0));
+}
+
+
+
+
+
 
 .rstudio-themes-dark-grey .rstudio-themes-border, .rstudio-themes-dark-grey table.GNJ4OY0CFS>tbody>tr>td, .rstudio-themes-dark-grey .GNJ4OY0CFX>div:last-child, .rstudio-themes-dark-grey .rstheme_secondaryToolbar, .rstudio-themes-dark-grey .gwt-TabLayoutPanel>div>div.gwt-TabLayoutPanelTabs {
     border-color: #000000;
@@ -89,7 +222,7 @@
 
 .rstudio-themes-dark .GNJ4OY0CHW {
     background-color: #565656;
-    border-color: rgb(45, 60, 75);
+    border-color: #161616;
 }
 
 
@@ -575,10 +708,7 @@ table.rstheme_tabLayoutCenter .gwt-Label,
   background-color: #353535;
 }
 
-/* fix overly zealous css rules */
-.gwt-DialogBox-ModalDialog .dialogContent .gwt-Label {
-  color: #333333;
-}
+
 
 /* job progress bar */
 .rstheme_toolbarWrapper [role="progressbar"] > div, .windowframe [role="progressbar"] > div {
