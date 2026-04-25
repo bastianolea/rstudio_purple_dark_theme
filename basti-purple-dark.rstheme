@@ -3,6 +3,40 @@
 /* Default Dark by Chris Kempson, modified by Bastián Olea Herrera */
 /* rs-theme-is-dark: TRUE */
 
+
+/* barra lateral de messages */
+.rstudio-themes-dark .GBQS1KEBKI {
+    border-left: 2px solid #a274bb;
+}
+
+/* barra lateral de errores */
+.rstudio-themes-dark .GBQS1KEBJI {
+    border-left: 2px solid #db57ab;
+}
+
+/* color texto error en consola */
+.rstudio-themes-dark .GBQS1KEBGI {
+    color: #db57ab;
+}
+
+/* color variables en texto de info */
+.xtermColor4 {
+    color: #a274bb !important;
+}
+.xtermColor6 {
+    color: #a274bb !important;
+}
+
+/* color texto warning */
+.rstudio-themes-dark .GBQS1KEBBJ {
+    color: #cb89b6;
+}
+
+/* barra lateral de warnings */
+.rstudio-themes-dark .GBQS1KEBMI {
+    border-left: 2px solid #cb89b6;
+}
+
 /* botón posit assistant */
 .rstudio-themes-dark .GBQS1KEBJP.GBQS1KEBMW {
     border-color: #282828;
@@ -893,9 +927,11 @@ input#rstudio_command_palette_search {
   background-color: #eb6f92;
 }
 
+/*
 .xtermColor4 {
   color: #3465a4 !important;
 }
+*/
 
 .xtermBgColor4 {
   background-color: #3465a4;
@@ -909,9 +945,11 @@ input#rstudio_command_palette_search {
   background-color: #75507b;
 }
 
+/*
 .xtermColor6 {
   color: #06989a !important;
 }
+*/
 
 .xtermBgColor6 {
   background-color: #06989a;
