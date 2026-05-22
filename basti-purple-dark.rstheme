@@ -4,6 +4,29 @@
 /* rs-theme-is-dark: TRUE */
 
 
+
+
+/* ventana de proyectos */
+.rstudio-themes-dark.rstudio-theme-aware-dialog, .rstudio-themes-dark.rstudio-theme-aware-dialog, .rstudio-themes-dark.rstudio-theme-aware-dialog,
+.rstudio-themes-dark.rstudio-theme-aware-dialog .GBQS1KEBP4, .rstudio-themes-dark.rstudio-theme-aware-dialog .GBQS1KEBA5, .rstudio-themes-dark.rstudio-theme-aware-dialog .GBQS1KEBC5 {
+    background-image: none;
+    background-color: #383838 !important;
+    border-bottom: 1px solid #282828;
+}
+.rstudio-themes-dark, .rstudio-theme-aware-dialog {
+    background-color: #383838 !important;
+}
+.rstudio-themes-dark.rstudio-theme-aware-dialog .GBQS1KEBP4:hover, .GBQS1KEBC5:hover {
+    background: #282828;
+}
+
+/*.rstudio-themes-flat .rstheme_toolbarWrapper button, .rstudio-themes-flat .rstheme_toolbarWrapper a, .rstudio-themes-flat .rstheme_toolbarWrapper div {*/
+
+/* barra superior de Posit Assistant */
+.dark [data-slot=topbar] {
+    background-color: #282828;
+}
+
 /* barra lateral de messages */
 .rstudio-themes-dark .GBQS1KEBKI {
     border-left: 2px solid #a274bb;
@@ -586,10 +609,6 @@ table.rstheme_tabLayoutCenter .gwt-Label,
 
 .rstudio-themes-flat .rstheme_toolbarWrapper {
   background: #383838 !important;
-}
-
-.rstudio-themes-flat .rstheme_toolbarWrapper button, .rstudio-themes-flat .rstheme_toolbarWrapper a, .rstudio-themes-flat .rstheme_toolbarWrapper div {
-  color: #D9CDDA !important;
 }
 
 .rstudio-themes-flat .rstudio-themes-dark-grey .gwt-SplitLayoutPanel-HDragger, .rstudio-themes-flat .rstudio-themes-dark-grey .gwt-SplitLayoutPanel-VDragger {
@@ -2945,4 +2964,23 @@ input#rstudio_command_palette_search {
 
 .xtermBgColor255 {
   background-color: #eeeeee;
+}
+
+
+/* temporal: ventana de git en blanco */
+#rstudio_satellite_panel {
+
+  .rstudio-themes-flat .rstheme_toolbarWrapper button, .rstudio-themes-flat .rstheme_toolbarWrapper a, .rstheme_toolbarWrapper, td {
+      color: #000000 !important;
+      background-color: #F4F8F9 !important;
+  }
+  
+  .rstudio-themes-flat .rstheme_toolbarWrapper {
+    color: #000000 !important;
+}
+
+
+  .gwt-Label, tr, td {
+    color: #000000 !important;
+  }
 }
