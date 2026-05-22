@@ -5,6 +5,11 @@
 
 
 
+/* texto de rutas panel archivos */
+.rstudio-themes-dark .rstudio-HyperlinkLabel {
+    color: #ba96ce;
+}
+
 
 /* ventana de proyectos */
 .rstudio-themes-dark.rstudio-theme-aware-dialog, .rstudio-themes-dark.rstudio-theme-aware-dialog, .rstudio-themes-dark.rstudio-theme-aware-dialog,
@@ -14,10 +19,10 @@
     border-bottom: 1px solid #282828;
 }
 .rstudio-themes-dark, .rstudio-theme-aware-dialog {
-    background-color: #383838 !important;
+    background-color: ##383838 !important;
 }
 .rstudio-themes-dark.rstudio-theme-aware-dialog .GBQS1KEBP4:hover, .GBQS1KEBC5:hover {
-    background: #282828;
+    background: #181818;
 }
 
 /*.rstudio-themes-flat .rstheme_toolbarWrapper button, .rstudio-themes-flat .rstheme_toolbarWrapper a, .rstudio-themes-flat .rstheme_toolbarWrapper div {*/
