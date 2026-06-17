@@ -928,11 +928,11 @@ input#rstudio_command_palette_search {
 }
 
 .xtermColor1 {
-  color: #cc0000 !important;
+  color: #d857a9 !important;
 }
 
 .xtermBgColor1 {
-  background-color: #cc0000;
+  background-color: #d857a9;
 }
 
 .xtermColor2 {
