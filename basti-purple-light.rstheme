@@ -3,6 +3,10 @@
 /* Based in Tomorrow theme, modified by Bastián Olea */
 /* rs-theme-is-dark: FALSE */
 
+
+/* al final están los cambios más recientes */
+
+
 .ace_gutter {
   background: #f6f6f6;
   color: #707070
@@ -765,4 +769,71 @@
 }
 .rstudio_rainbow_indent_fills .ace_line .ace_indent-guide:nth-child(7n+7){
     background: linear-gradient(to left, #dc91dbbb 1px, #dc91db77 1px, #dc91db77 );
+}
+
+
+
+
+
+
+/* color lateral de mensajes */
+.rstudio-themes-default .GBQS1KEBKI {
+    border-left: 2px solid #8e5fad;
+}
+
+/* color línea lateral de warnings */
+.rstudio-themes-default .GBQS1KEBMI {
+    border-left: 2px solid #dc66b1;
+}
+/* texto warnings */
+.rstudio-themes-default .GBQS1KEBBJ {
+    color: #d057a3;
+}
+
+/* color línea lateral de errores */
+.rstudio-themes-default .GBQS1KEBJI {
+    border-left: 2px solid #cd1c69;
+}
+/* texto de errores */
+.rstudio-themes-default .GBQS1KEBGI {
+    color: #c01a62;
+}
+
+
+/* funciones */
+.ace_entity.ace_name.ace_function, .ace_support.ace_function, .ace_variable {
+    color: #724790;
+}
+
+/* paquetes */
+.ace_support.ace_class, .ace_support.ace_type {
+    color: #dca4c8f2;
+}
+
+
+/* opciones quarto */
+.ace_entity.ace_name.ace_tag, .ace_entity.ace_other.ace_attribute-name, .ace_meta.ace_tag, .ace_string.ace_regexp, .ace_variable {
+    color: #deb0cf;
+}
+
+/* color de simbolo en avisos */
+.xtermColor3 {
+    color: #e48706 !important;
+}
+
+/* color de otros avisos en consola */
+.xtermColor1 {
+    color: rgb(209 55 167) !important;
+}
+
+.xtermColor247 {
+    color: #89758d !important;
+}
+
+.xtermColor4 {
+    color: #6e55be !important;
+}
+
+.xtermColor214 {
+    color: #ffaf00 !important;
 }
