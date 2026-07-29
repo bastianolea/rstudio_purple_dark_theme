@@ -360,10 +360,11 @@
   border: 1px solid rgba(216, 216, 216, 0.2);
 }
 
+/* fondos chunk quarto/rmarkdown */
 .ace_marker-layer .ace_foreign_line {
   position: absolute;
   z-index: -1;
-  background-color: #282828;
+  background-color: #212121;
 }
 
 .ace_marker-layer .ace_active_debug_line {

@@ -813,7 +813,7 @@
 
 /* opciones quarto */
 .ace_entity.ace_name.ace_tag, .ace_entity.ace_other.ace_attribute-name, .ace_meta.ace_tag, .ace_string.ace_regexp, .ace_variable {
-    color: #deb0cf;
+    color: rgb(206 82 165);
 }
 
 /* color de simbolo en avisos */
@@ -837,3 +837,14 @@
 .xtermColor214 {
     color: #ffaf00 !important;
 }
+
+/* borde de número de fila en scripts */
+.ace_folding-enabled > .ace_gutter-cell, .ace_folding-enabled > .ace_gutter-cell_svg-icons {
+    border-right: solid 1px #dfdfdf;
+}
+
+/* color de errores en quarto */
+.xtermColor225 {
+    color: #ab9cab !important;
+}
+
