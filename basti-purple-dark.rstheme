@@ -2990,3 +2990,4 @@ input#rstudio_command_palette_search {
     color: #000000 !important;
   }
 }
+
