@@ -3031,3 +3031,13 @@ input#rstudio_command_palette_search {
 .dark [data-slot=dropdown-menu-content] {
     background-color: #222222;
 }
+
+/* fondo de Posit Assistant */
+.rstudio-themes-flat.ace_editor_theme {
+    background-color: #181818 !important;
+}
+.dark [data-slot=topbar] {
+    background-color: #282828 !important;
+    border-bottom: solid 1px #111111 !important;
+}
+
