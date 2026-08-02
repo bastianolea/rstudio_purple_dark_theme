@@ -16,13 +16,32 @@
 .rstudio-themes-dark.rstudio-theme-aware-dialog .GBQS1KEBP4, .rstudio-themes-dark.rstudio-theme-aware-dialog .GBQS1KEBA5, .rstudio-themes-dark.rstudio-theme-aware-dialog .GBQS1KEBC5 {
     background-image: none;
     background-color: #383838 !important;
-    border-bottom: 1px solid #282828;
+    border-bottom: 1px solid #222222;
 }
 .rstudio-themes-dark, .rstudio-theme-aware-dialog {
-    background-color: ##383838 !important;
+    background-color: #282828 !important;
 }
 .rstudio-themes-dark.rstudio-theme-aware-dialog .GBQS1KEBP4:hover, .GBQS1KEBC5:hover {
     background: #181818;
+}
+.rstudio-themes-dark.rstudio-theme-aware-dialog .GFRCULXJQ .gwt-TabLayoutPanelContentContainer {
+    background-color: #282828 !important;
+    border-color: #222222 !important;
+}
+.rstudio-themes-dark.rstudio-theme-aware-dialog .GFRCULXAM {
+    background-color: #282828 !important;
+    border-color: #222222 !important;
+}
+.rstudio-themes-dark.rstudio-theme-aware-dialog .GFRCULXDL {
+    background: #202020;
+}
+.rstudio-themes-dark.rstudio-theme-aware-dialog .GFRCULXJQ .gwt-TabLayoutPanelTab {
+    background: #383838;
+    border-color: #222222;
+}
+.rstudio-themes-dark.rstudio-theme-aware-dialog .GFRCULXJQ .gwt-TabLayoutPanelTab-selected {
+    background: rgb(32 32 32);
+    color: #eee;
 }
 
 /*.rstudio-themes-flat .rstheme_toolbarWrapper button, .rstudio-themes-flat .rstheme_toolbarWrapper a, .rstudio-themes-flat .rstheme_toolbarWrapper div {*/
@@ -67,6 +86,11 @@
 
 /* botón posit assistant */
 .rstudio-themes-dark .GBQS1KEBJP.GBQS1KEBMW {
+    border-color: #282828;
+    background-color: #434343;
+}
+#rstudio_assistant_toggle_button, 
+.rstudio-themes-dark .GFRCULXJP.GFRCULXLW {
     border-color: #282828;
     background-color: #434343;
 }
@@ -177,9 +201,20 @@
 
 
 /* borde de paneles */
-
 .rstudio-themes-dark-grey .rstudio-themes-border, .rstudio-themes-dark-grey table.GBQS1KEBJS>tbody>tr>td, .rstudio-themes-dark-grey .GBQS1KEBKX>div:last-child, .rstudio-themes-dark-grey .rstheme_secondaryToolbar, .rstudio-themes-dark-grey .gwt-TabLayoutPanel>div>div.gwt-TabLayoutPanelTabs {
     border-color: rgb(22 22 22);
+}
+
+.rstudio-themes-border, 
+.rstudio-themes-dark-grey table.GFRCULXIS>tbody>tr>td, 
+.rstudio-themes-dark-grey .GFRCULXJX>div:last-child, 
+.rstudio-themes-dark-grey .rstheme_secondaryToolbar, 
+.rstudio-themes-dark-grey .gwt-TabLayoutPanel>div>div.gwt-TabLayoutPanelTabs {
+  border-color: rgb(22, 22, 22);
+}
+
+.rstudio-themes-dark-grey .GFRCULXMLD, .rstudio-themes-dark-grey .GFRCULXMLD .GFRCULXDLD {
+    border-color: rgb(22, 22, 22);
 }
 
 .rstudio-themes-dark-grey .GBQS1KEBKLD, .rstudio-themes-dark-grey .GBQS1KEBKLD .GBQS1KEBBLD {
@@ -2991,3 +3026,8 @@ input#rstudio_command_palette_search {
   }
 }
 
+
+/* panel de modelos de Posit Assistant */
+.dark [data-slot=dropdown-menu-content] {
+    background-color: #222222;
+}
