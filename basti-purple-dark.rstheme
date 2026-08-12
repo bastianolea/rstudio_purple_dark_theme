@@ -3041,3 +3041,78 @@ input#rstudio_command_palette_search {
     border-bottom: solid 1px #111111 !important;
 }
 
+
+/* ventana de session aborted */
+.rstudio-themes-flat .popupContent {
+    /*color: #141414;*/
+}
+.GFRCULXPAB {
+    color: #141414;
+}
+
+/* grilla de environment */
+.rstudio-themes-dark-grey td.GFRCULXJDC, .rstudio-themes-dark-grey td.GFRCULXHDC, .rstudio-themes-dark-grey td.GFRCULXODC, .rstudio-themes-dark-grey td.GFRCULXLDC, .rstudio-themes-dark-grey .GFRCULXGDC, .rstudio-themes-dark-grey .GFRCULXBDC {
+    border-color: rgb(40 40 40);
+}
+
+
+/* borde del outline de scripts */
+.GFRCULXPQC {
+    border-left: 1px solid rgb(40 40 40);
+}
+
+/* texto de breadcrumbs de files */
+.rstudio-themes-dark .breadcrumb table.GFRCULXFK .rstudio-HyperlinkLabel {
+    color: #d9cdda;
+}
+
+/* degradado encima debreadcrumbs de panel files */
+.breadcrumb .GFRCULXNJ, .editor_dark .ace_editor_theme .breadcrumb .GFRCULXOJ {
+    filter: grayscale(1) brightness(0.6);
+}
+
+/* texto de nombres de archivo en panel files */
+.GFRCULXCJ {
+    color: #d9cdda !important;
+}
+
+/* texto de elementos en panel files */
+.GFRCULXIFC {
+    color: #6a616c; !important;
+}
+
+/* asterisco de archivo sin guardar */
+.rstudio-themes-dark .gwt-TabLayoutPanelTabs .GFRCULXLQ table.rstheme_tabLayoutCenter {
+    color: #a274bb;
+}
+
+/* botón de outline en scripts */
+.rstudio-themes-dark .GFRCULXLW {
+    background-color: rgb(56 56 56);
+    border-color: rgb(56 56 56);
+}
+
+/* botones de buscar y reemplazar */
+.rstudio-themes-dark button.GFRCULXA3>table:first-child {
+    border-color: #626262;
+    background: #5a5a5a;
+}
+
+/* color del cosito que aparece arriba cuando RStudio está cargando */
+.GFRCULXL2 {
+    background: #181818;
+    border: 1px solid #1D1D1D;
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    padding: 8px 14px;
+    margin: 0 auto 12px;
+    display: table;
+}
+
+/* panel de nuevo proyecto */
+.rstudio-themes-dark.rstudio-theme-aware-dialog .GFRCULXO4, .rstudio-themes-dark.rstudio-theme-aware-dialog .GFRCULXP4, .rstudio-themes-dark.rstudio-theme-aware-dialog .GFRCULXB5 {
+    background-image: none;
+    background-color: rgb(56 56 56);
+    border-bottom: 1px solid rgb(40 40 40);
+}
