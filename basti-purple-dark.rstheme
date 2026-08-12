@@ -3112,3 +3112,15 @@ input#rstudio_command_palette_search {
     background-color: rgb(56 56 56);
     border-bottom: 1px solid rgb(40 40 40);
 }
+
+/* checkboxes */
+.rstudio-themes-dark input[type="checkbox"], .macintosh .rstudio-themes-dark input[type="checkbox"], .linux .rstudio-themes-dark input[type="checkbox"], .windows-highdpi .rstudio-themes-dark input[type="checkbox"] {
+    background: #d9d3dc;
+    border-color: #352f38;
+}
+
+/* botones de dataframes en panel environment */
+.GFRCULXIDC {
+    filter: hue-rotate(42deg) saturate(1.1) brightness(.9);
+}
+
