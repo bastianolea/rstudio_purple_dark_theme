@@ -3124,3 +3124,11 @@ input#rstudio_command_palette_search {
     filter: hue-rotate(42deg) saturate(1.1) brightness(.9);
 }
 
+
+/* bordes negros */
+.rstudio-themes-dark-grey .rstudio-themes-border, .rstudio-themes-dark-grey table.GCOP2I3BIS>tbody>tr>td, .rstudio-themes-dark-grey .GCOP2I3BJX>div:last-child, .rstudio-themes-dark-grey .rstheme_secondaryToolbar, .rstudio-themes-dark-grey .gwt-TabLayoutPanel>div>div.gwt-TabLayoutPanelTabs {
+    border-color: #111111 !important;
+}
+.rstudio-themes-dark-grey .GCOP2I3BMLD, .rstudio-themes-dark-grey .GCOP2I3BMLD .GCOP2I3BDLD {
+    border-color: #111111 !important;
+}
