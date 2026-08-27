@@ -1,0 +1,271 @@
+.ace_gutter {
+  background: #1d1d1d;
+  color: #444444;
+}
+
+.ace_print-margin {
+  width: 2px;
+  background: rgba(216, 216, 216, 0.15);
+}
+
+.ace_editor {
+  background-color: #181818;
+  color: #D9CDDA; /*dcd4dd*/
+}
+
+.rstudio-themes-flat.ace_editor_theme {
+  background-color: #181818;
+  color: #D9CDDA;
+}
+
+.rstudio-themes-flat.ace_editor_theme .profvis-flamegraph {
+  background-color: #181818;
+  color: #D9CDDA;
+}
+
+.rstudio-themes-flat .ace_editor_theme {
+  background-color: #181818;
+  color: #D9CDDA;
+}
+
+.rstudio-themes-flat.editor_dark.ace_editor_theme a {
+  color: #D9CDDA !important;
+}
+
+.rstudio-themes-flat .gwt-Label {
+  color: #D9CDDA;
+}
+
+.ace_cursor {
+  color: #f7ca88;
+}
+
+.normal-mode .ace_cursor {
+  border: 0 !important;
+  background-color: #f7ca88;
+}
+
+.ace_marker-layer .ace_selection {
+  background: rgba(216, 216, 216, 0.2);
+}
+
+.ace_marker-layer .ace_step {
+  background: #b7c68e;
+}
+
+.ace_marker-layer .ace_bracket {
+  margin: -1px 0 0 -1px;
+  border: 1px solid #383838;
+}
+
+.ace_marker-layer .ace_active-line {
+  background: rgba(11, 11, 11, 0.3);
+}
+
+.ace_marker-layer .ace_selected-word {
+  border: 1px solid rgba(216, 216, 216, 0.2);
+}
+
+/* fondos chunk quarto/rmarkdown */
+.ace_marker-layer .ace_foreign_line {
+  position: absolute;
+  z-index: -1;
+  background-color: #212121;
+}
+
+.ace_marker-layer .ace_active_debug_line {
+  position: absolute;
+  z-index: -1;
+  background-color: #323232;
+}
+
+.ace_marker-layer .ace_find_line {
+  position: absolute;
+  z-index: -1;
+  background-color: #282828;
+}
+
+.ace_gutter-active-line {
+  background-color: #282828;
+}
+
+.ace_fold {
+  background-color: #BA4786;
+  border: 1px solid #D9CDDA !important;
+}
+
+.ace_indent-guide {
+  display: inline-block;
+  height: 100%;
+  box-shadow: 1px 0 0 #383838;
+}
+
+.ace_active-line ~ .ace_selection.ace_start {
+  background-color: #383838;
+}
+
+.ace_keyword {
+  font-style: normal;
+  color : #CA89B6; /*color: #CA89B6;*/
+}
+
+.ace_keyword.ace_operator {
+  font-style: normal;
+  color: #DD7CBA;
+}
+
+.ace_keyword.ace_other.ace_unit {
+  font-style: normal;
+  color: #91D6DE;
+}
+
+.ace_constant.ace_language {
+  color: #8654A7;
+}
+
+.ace_constant.ace_numeric {
+  color: #91D6DE;
+}
+
+.ace_constant.ace_character {
+  color: #91D6DE;
+}
+
+.ace_constant.ace_other {
+  color: #D9CDDA;
+}
+
+.ace_support.ace_function {
+  color: #db57ab;
+}
+
+.ace_support.ace_constant {
+  color: #91D6DE;
+}
+
+.ace_support.ace_class {
+  font-style: italic;
+  color: #CB89B6;
+}
+
+.ace_support.ace_type {
+  color: #f7ca88;
+}
+
+.ace_paren.ace_keyword.ace_operator {
+  color: #DD7CBA;
+}
+
+.ace_storage {
+  color: #CA89B6;
+}
+
+.ace_storage.ace_type {
+  color: #CA89B6;
+}
+
+.ace_invalid {
+  background-color: rgba(171, 70, 66, 0.5);
+}
+
+.ace_invalid.ace_deprecated {
+  background-color: rgba(186, 139, 175, 0.5);
+}
+
+.ace_string {
+  color: #a274bb;
+}
+
+.ace_comment {
+  color: #6a606c; /*color: #947F97;*/
+}
+
+.ace_ghost_text {
+  color: #5F5161; /* github copilot completions */
+}
+
+.ace_invisible {
+  color: #585858;
+}
+
+.ace_variable {
+  color: #BA4786;
+}
+
+.ace_variable.ace_parameter {
+  color: #91D6DE;
+}
+
+.ace_identifier {
+  color: #D9CDDA;
+  background-color: inherit;
+}
+
+.ace_entity.ace_name.ace_function {
+  color: #db57ab;
+}
+
+.ace_entity.ace_name.ace_tag {
+  color: #BA4786;
+}
+
+.ace_entity.ace_other.ace_attribute-name {
+  color: #CA89B6;
+}
+
+.ace_bracket {
+  margin: 0 !important;
+  border: 0 !important;
+  background-color: #383838;
+}
+
+.ace_console_error {
+  background-color: #282828;
+}
+
+.ace_layer {
+  z-index: 4;
+}
+
+.ace_layer.ace_print-margin-layer {
+  z-index: 2;
+}
+
+.ace_layer.ace_marker-layer {
+  z-index: 1;
+}
+
+.ace_layer.ace_cursor-layer {
+  z-index: 3;
+}
+
+.ace_selection.ace_start {
+  box-shadow: 0 0 3px 0 #181818;
+  border-radius: 2px;
+}
+
+.ace_meta.ace_tag {
+  color: #db57ab;
+}
+
+.ace_markup.ace_heading,
+.ace_markup.ace_heading ~ .ace_heading {
+  font-weight: 600;
+  color: #a274bb;
+}
+
+.ace_support.ace_function.ace_codebegin, .ace_support.ace_function.ace_codeend {
+  color: #db57ab;
+}
+
+.ace_markup.ace_href {
+  color: #CA89B6;
+}
+
+.nocolor.ace_editor .ace_line span {
+  color: #CA89B6 !important;
+}
+
+#rstudio_console_input .ace_marker-layer .ace_selection {
+  background: rgba(216, 216, 216, 0.2);
+}

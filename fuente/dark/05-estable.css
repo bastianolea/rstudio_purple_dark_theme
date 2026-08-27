@@ -1,0 +1,210 @@
+/* ==========================================================================
+   Parches que usan solo el contrato público de temas de RStudio
+   --------------------------------------------------------------------------
+   Nada de esto depende de la versión de RStudio: son clases documentadas
+   (.rstudio-themes-*, .rstheme_*, .gwt-*), IDs #rstudio_*, atributos ARIA o
+   data-slot, y selectores de HTML corriente. Se puede editar sin miedo.
+
+   Las reglas marcadas con OVERRIDE pisan a propósito un valor de los bloques
+   generados (02, 03, 04). Los bloques generados no se editan nunca, para
+   poder regenerarlos; los cambios van acá.
+
+   Lo más nuevo, al final.
+   ========================================================================== */
+
+
+/* bordes de barras de herramientas y ventanas minimizadas */
+.rstudio-themes-dark-grey .rstheme_minimizedWindowObject > div:last-child,
+.rstudio-themes-dark-grey .rstheme_toolbarWrapper {
+    border-color: #151515;
+}
+
+/* bordes de las pestañas de los paneles */
+.rstudio-themes-dark-grey .gwt-TabLayoutPanelTabs table.rstheme_tabLayoutCenter,
+.rstudio-themes-dark-grey .rstheme_minimizedWindowObject table.rstheme_tabLayoutCenter {
+    border-color: #151515;
+}
+
+/* fondo de barras de herramientas y pestañas */
+.rstudio-themes-dark-grey .rstudio-themes-background,
+.rstudio-themes-dark-grey .rstheme_toolbarWrapper,
+.rstudio-themes-dark-grey .gwt-TabLayoutPanelTabs .gwt-TabLayoutPanelTab-selected table.rstheme_tabLayoutCenter,
+.rstudio-themes-dark-grey .rstheme_secondaryToolbar,
+.rstudio-themes-dark-grey .gwt-TabLayoutPanelContent,
+.rstudio-themes-dark-grey .gwt-TabLayoutPanel {
+    background: #383838;
+}
+
+/* separador de items de menú */
+.rstudio-themes-dark-menus .gwt-MenuItemSeparator .menuSeparatorInner {
+    border-color: #383838;
+}
+
+/* enlaces de los tutoriales */
+.rstudio-themes-dark-menus.rstudio-tutorials a:link,
+.rstudio-themes-dark-menus .rstudio-tutorials-install-learnr-link:link,
+.rstudio-themes-dark-menus .rstudio-tutorials-install-shiny-link:link {
+    color: #DC57AB;
+}
+
+/* borde de foco por teclado */
+:focus-visible:not(.gwt-MenuBar),
+input[type="checkbox"]:focus-visible {
+    outline: #A274BB solid 2px !important;
+    outline-offset: -1px !important;
+}
+
+/* texto de rutas panel archivos */
+.rstudio-themes-dark .rstudio-HyperlinkLabel {
+    color: #ba96ce;
+}
+
+/* fondo de diálogos */
+.rstudio-themes-dark,
+.rstudio-theme-aware-dialog {
+    background-color: #282828 !important;
+}
+
+/* OVERRIDE de 04-terminal.css: color de variables en texto de info */
+.xtermColor4,
+.xtermColor6 {
+    color: #a274bb !important;
+}
+
+/* cajas de buscadores */
+.rstudio-themes-dark-menus .search {
+    border-color: #212121;
+}
+
+/* borde de la caja de búsqueda */
+.rstudio-themes-flat .rstudio-themes-dark-grey .rstudio-themes-background {
+    border-bottom: solid 1px #151515;
+}
+
+/* OVERRIDE de 02-editor.css: borde del gutter (números de línea) */
+.ace_gutter {
+    background: #1d1d1d;
+    color: #444444;
+    border-right: solid 1px #151515;
+}
+
+/* texto de los menús de la ventana de opciones */
+.gwt-DialogBox-ModalDialog .dialogContent .gwt-Label {
+    color: #d8ccd9;
+}
+
+/* ventana de ajustes */
+.rstudio-themes-dark.rstudio-theme-aware-dialog {
+    background: rgb(56 56 56);
+    border-color: #181818;
+    color: #d8ccd9;
+}
+
+.rstudio-themes-dark.rstudio-theme-aware-dialog .dialogTopCenter {
+    background: rgb(40 40 40);
+    border-bottom-color: rgb(22 22 22);
+}
+
+/* botones de los diálogos */
+.rstudio-themes-dark.rstudio-theme-aware-dialog button.gwt-Button > table:first-child {
+    background: rgb(159 161 162);
+    border-color: rgb(22 22 22);
+    color: #282828;
+    box-shadow: none;
+}
+
+/* desplegables y campos de texto de los diálogos */
+.rstudio-themes-dark.rstudio-theme-aware-dialog select,
+.rstudio-themes-dark.rstudio-theme-aware-dialog .gwt-ListBox {
+    background: rgb(160 161 162);
+    border-color: rgb(22 22 22);
+    color: #181818;
+}
+
+.rstudio-themes-dark.rstudio-theme-aware-dialog input[type="text"],
+.rstudio-themes-dark.rstudio-theme-aware-dialog input[type="password"],
+.rstudio-themes-dark.rstudio-theme-aware-dialog input[type="number"],
+.rstudio-themes-dark.rstudio-theme-aware-dialog textarea {
+    background: rgb(160 161 162);
+    border-color: rgb(24 24 24);
+    color: #181818;
+    color-scheme: dark;
+}
+
+.rstudio-themes-dark.rstudio-theme-aware-dialog select option {
+    background: rgb(160 161 162);
+    color: #181818;
+}
+
+.rstudio-themes-dark.rstudio-theme-aware-dialog select option:checked {
+    background: rgb(54 54 54);
+    color: #eee;
+}
+
+/* checkboxes */
+.rstudio-themes-dark input[type="checkbox"],
+.macintosh .rstudio-themes-dark input[type="checkbox"],
+.linux .rstudio-themes-dark input[type="checkbox"],
+.windows-highdpi .rstudio-themes-dark input[type="checkbox"] {
+    background: #d9d3dc;
+    border-color: #352f38;
+}
+
+/* Posit Assistant: barra superior */
+.dark [data-slot=topbar] {
+    background-color: #282828 !important;
+    border-bottom: solid 1px #111111 !important;
+}
+
+/* Posit Assistant: panel de modelos */
+.dark [data-slot=dropdown-menu-content] {
+    background-color: #222222;
+}
+
+/* OVERRIDE de 02-editor.css: fondo de Posit Assistant */
+.rstudio-themes-flat.ace_editor_theme {
+    background-color: #181818 !important;
+}
+
+/* outputs de Quarto que no sean transparentes */
+.gwt-Frame {
+    opacity: 1 !important;
+}
+
+/* temporal: la ventana de Git se ve en blanco, así que se fuerza claro.
+   Revisar si en alguna versión futura ya no hace falta. */
+#rstudio_satellite_panel {
+
+  .rstudio-themes-flat .rstheme_toolbarWrapper button,
+  .rstudio-themes-flat .rstheme_toolbarWrapper a,
+  .rstheme_toolbarWrapper,
+  td {
+      color: #151515 !important;
+      background-color: #F4F8F9 !important;
+  }
+
+  .rstudio-themes-flat .rstheme_toolbarWrapper {
+      color: #151515 !important;
+  }
+
+  .gwt-Label, tr, td {
+      color: #151515 !important;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   Reglas desactivadas, con su motivo. Se dejan para no perder la intención.
+   -------------------------------------------------------------------------- */
+
+/* Bordes de los popups de menú. Estaba escrita como `border: #404040`, que es
+   CSS inválido (el atajo `border` necesita también un estilo), así que el
+   navegador la descartaba y nunca hizo nada. Para activarla, descomentar y
+   usar `border-color`; ojo que sí cambia el aspecto de los menús.
+
+.rstudio-themes-dark-menus .menuPopupMiddleCenter,
+.rstudio-themes-dark-menus .themedPopupPanel .popupMiddleCenter,
+.rstudio-themes-dark-menus .gwt-SuggestBoxPopup .suggestPopupMiddleCenter {
+    border-color: #404040;
+}
+*/

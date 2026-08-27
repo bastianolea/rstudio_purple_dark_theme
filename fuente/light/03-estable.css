@@ -1,0 +1,48 @@
+/* funciones */
+.ace_entity.ace_name.ace_function, .ace_support.ace_function, .ace_variable {
+    color: #724790;
+}
+
+/* paquetes */
+.ace_support.ace_class, .ace_support.ace_type {
+    color: #dca4c8f2;
+}
+
+
+/* opciones quarto */
+.ace_entity.ace_name.ace_tag, .ace_entity.ace_other.ace_attribute-name, .ace_meta.ace_tag, .ace_string.ace_regexp, .ace_variable {
+    color: rgb(206 82 165);
+}
+
+/* color de simbolo en avisos */
+.xtermColor3 {
+    color: #e48706 !important;
+}
+
+/* color de otros avisos en consola */
+.xtermColor1 {
+    color: rgb(209 55 167) !important;
+}
+
+.xtermColor247 {
+    color: #89758d !important;
+}
+
+.xtermColor4 {
+    color: #6e55be !important;
+}
+
+.xtermColor214 {
+    color: #ffaf00 !important;
+}
+
+/* borde de número de fila en scripts */
+.ace_folding-enabled > .ace_gutter-cell, .ace_folding-enabled > .ace_gutter-cell_svg-icons {
+    border-right: solid 1px #dfdfdf;
+}
+
+/* color de errores en quarto */
+.xtermColor225 {
+    color: #ab9cab !important;
+}
+

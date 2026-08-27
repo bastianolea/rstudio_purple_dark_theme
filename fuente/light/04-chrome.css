@@ -1,0 +1,35 @@
+/* ==========================================================================
+   Parches del chrome del IDE  —  nombres semánticos, no clases ofuscadas
+   --------------------------------------------------------------------------
+   Ver fuente/dark/06-chrome.css para la explicación completa. En el tema
+   claro solo hacen falta los colores de los mensajes de la consola.
+
+   Antes apuntaban a las clases de RStudio 2026.04 y llevaban dos versiones
+   sin aplicarse.
+   ========================================================================== */
+
+
+/* color lateral de mensajes */
+.rstudio-themes-default .{{VirtualConsole.groupMessage}} {
+    border-left: 2px solid #8e5fad;
+}
+
+/* color línea lateral de warnings */
+.rstudio-themes-default .{{VirtualConsole.groupWarning}} {
+    border-left: 2px solid #dc66b1;
+}
+
+/* texto warnings */
+.rstudio-themes-default .{{VirtualConsole.warning}} {
+    color: #d057a3;
+}
+
+/* color línea lateral de errores */
+.rstudio-themes-default .{{VirtualConsole.groupError}} {
+    border-left: 2px solid #cd1c69;
+}
+
+/* texto de errores */
+.rstudio-themes-default .{{VirtualConsole.error}} {
+    color: #c01a62;
+}

@@ -1,0 +1,297 @@
+/* ==========================================================================
+   Parches del chrome del IDE  —  nombres semánticos, no clases ofuscadas
+   --------------------------------------------------------------------------
+   RStudio no ofrece ninguna API para estilizar su propio marco (bordes de
+   paneles, barra de estado, panel de entorno, diálogos, outline). Esas partes
+   solo tienen las clases que GWT ofusca al compilar, y cuyo nombre cambia en
+   cada versión.
+
+   Acá esos elementos se escriben con su nombre semántico, entre llaves
+   dobles:
+
+       .{{ThemeResources.windowFrameObject}}
+
+   y `construir_tema()` lo reemplaza por la clase real de la versión de
+   RStudio instalada (hoy .GFRCULXJX). Para averiguar el nombre de un elemento
+   nuevo:
+
+       source("R/mapa-clases.R"); source("R/doctor.R")
+       buscar_miembro("outline")        # por nombre
+       buscar_clase("GFRCULXPQC")       # por la clase que muestra el inspector
+
+   Lo más nuevo, al final.
+   ========================================================================== */
+
+
+/* bordes de los paneles y de las barras de herramientas.
+   Unifica cuatro copias que había en el tema, una por versión de RStudio.
+   El valor viene de la copia más reciente ("bordes negros"); antes de esta
+   migración solo se aplicaba a algunas de las ramas, así que los bordes de
+   las tablas de paneles y del marco de ventana pasan de rgb(22 22 22) a
+   #111111. Si prefieres el anterior, cambia el color acá. */
+.rstudio-themes-dark-grey .rstudio-themes-border,
+.rstudio-themes-dark-grey table.{{ThemeResources.header}} > tbody > tr > td,
+.rstudio-themes-dark-grey .{{ThemeResources.windowFrameObject}} > div:last-child,
+.rstudio-themes-dark-grey .rstheme_secondaryToolbar,
+.rstudio-themes-dark-grey .gwt-TabLayoutPanel > div > div.gwt-TabLayoutPanelTabs {
+    border-color: #151515 !important;
+}
+
+/* bordes de la barra de estado (abajo del editor) */
+.rstudio-themes-dark-grey .{{StatusBarWidget.statusBar}},
+.rstudio-themes-dark-grey .{{StatusBarWidget.statusBar}} .{{StatusBarWidget.element}} {
+    border-color: #151515 !important;
+}
+
+/* RECUPERADA: encabezado del panel de consola.
+   RStudio le pone `border-bottom: solid 1px #d6dadc`, un borde claro que en
+   tema oscuro se ve. El parche existía desde antes pero apuntaba a clases de
+   RStudio 2025 y llevaba dos versiones sin aplicarse. Los sufijos se habían
+   desplazado una posición, así que los nombres no eran los que parecían. */
+.rstudio-themes-dark-grey .{{ThemeResources.windowFrameObject}}.{{ThemeResources.consoleOnlyWindowFrame}},
+.rstudio-themes-dark-grey .{{ThemeResources.windowFrameObject}}.{{ThemeResources.consoleOnlyWindowFrame}} div.{{ThemeResources.consoleHeaderLayout}} .{{ThemeResources.primaryWindowFrameHeader}} {
+    border-color: #151515;
+}
+
+.rstudio-themes-dark-grey .{{ThemeResources.windowFrameObject}}.{{ThemeResources.consoleOnlyWindowFrame}} div.{{ThemeResources.consoleHeaderLayout}} .{{ThemeResources.primaryWindowFrameHeader}} {
+    background: #383838;
+}
+
+/* borde de la barra de herramientas */
+.rstudio-themes-dark .{{ThemeResources.toolbar}} {
+    border-color: #606060;
+}
+
+/* botones de la barra de herramientas */
+.rstudio-themes-dark .{{ThemeResources.toolbarButton}} {
+    background-color: #383838;
+    border-color: #151515;
+}
+
+/* RECUPERADA: alineación del botón de modo visual (Source/Visual).
+   Estaba escrita con la clase del toolbar en la posición del botón; ahora
+   apunta al toolbar de markdown, que es lo que RStudio usa ahí. */
+.{{MarkdownToolbar.markdownToolbar}} button.rstudio-themes-inverts div {
+    margin-top: 1px;
+}
+
+/* botones apretados en el panel de scripts */
+.rstudio-themes-dark .{{MarkdownToolbar.markdownToolbar}} button.rstudio-themes-inverts[aria-pressed="true"] {
+    background-color: rgb(56 56 56);
+    border-bottom: solid 2px #5f5b61;
+}
+
+/* ventana de proyectos y de opciones: pestañas y menú lateral */
+.rstudio-themes-dark.rstudio-theme-aware-dialog .{{ThemeResources.dialogTabPanel}} .gwt-TabLayoutPanelContentContainer,
+.rstudio-themes-dark.rstudio-theme-aware-dialog .{{ThemeResources.dialogTabPanelNoTabs}} .gwt-TabLayoutPanelContentContainer {
+    background-color: #282828 !important;
+    border-color: #222222 !important;
+}
+
+.rstudio-themes-dark.rstudio-theme-aware-dialog .{{PreferencesDialogBaseResources.sectionChooser}} {
+    background-color: #282828 !important;
+    border-color: #222222 !important;
+}
+
+.rstudio-themes-dark.rstudio-theme-aware-dialog .{{PreferencesDialogBaseResources.activeSection}} {
+    background: #202020;
+}
+
+.rstudio-themes-dark.rstudio-theme-aware-dialog .{{ThemeResources.dialogTabPanel}} .gwt-TabLayoutPanelTab,
+.rstudio-themes-dark.rstudio-theme-aware-dialog .{{ThemeResources.dialogTabPanelNoTabs}} .gwt-TabLayoutPanelTab {
+    background: #383838;
+    border-color: #222222;
+}
+
+.rstudio-themes-dark.rstudio-theme-aware-dialog .{{ThemeResources.dialogTabPanel}} .gwt-TabLayoutPanelTab-selected,
+.rstudio-themes-dark.rstudio-theme-aware-dialog .{{ThemeResources.dialogTabPanelNoTabs}} .gwt-TabLayoutPanelTab-selected {
+    background: rgb(32 32 32);
+    color: #eee;
+}
+
+/* panel de nuevo proyecto: pasos del asistente */
+.rstudio-themes-dark.rstudio-theme-aware-dialog .{{WizardResources.wizardPageSelectorItem}},
+.rstudio-themes-dark.rstudio-theme-aware-dialog .{{WizardResources.wizardPageSelectorItemFirst}},
+.rstudio-themes-dark.rstudio-theme-aware-dialog .{{WizardResources.wizardPageSelectorItemLast}} {
+    background-image: none;
+    background-color: rgb(56 56 56);
+    border-bottom: 1px solid rgb(40 40 40);
+}
+
+/* RECUPERADA: hover de los pasos del asistente */
+.rstudio-themes-dark.rstudio-theme-aware-dialog .{{WizardResources.wizardPageSelectorItem}}:hover,
+.rstudio-themes-dark.rstudio-theme-aware-dialog .{{WizardResources.wizardPageSelectorItemFirst}}:hover,
+.rstudio-themes-dark.rstudio-theme-aware-dialog .{{WizardResources.wizardPageSelectorItemLast}}:hover {
+    background: #181818;
+}
+
+/* RECUPERADAS: colores de los mensajes de la consola.
+   Estaban apuntando a clases de RStudio 2026.04 y no aplicaban desde
+   entonces. */
+.rstudio-themes-dark .{{VirtualConsole.error}} {
+    color: #db57ab;
+}
+
+.rstudio-themes-dark .{{VirtualConsole.warning}} {
+    color: #cb89b6;
+}
+
+.rstudio-themes-dark .{{VirtualConsole.groupMessage}} {
+    border-left: 2px solid #a274bb;
+}
+
+.rstudio-themes-dark .{{VirtualConsole.groupError}} {
+    border-left: 2px solid #db57ab;
+}
+
+.rstudio-themes-dark .{{VirtualConsole.groupWarning}} {
+    border-left: 2px solid #cb89b6;
+}
+
+/* botón del Posit Assistant */
+#rstudio_assistant_toggle_button,
+.rstudio-themes-dark .{{ThemeResources.assistantToggleButton}}.{{ThemeResources.toolbarButtonLatched}} {
+    border-color: #282828;
+    background-color: #434343;
+}
+
+/* botón de outline en los scripts */
+.rstudio-themes-dark .{{ThemeResources.toolbarButtonLatched}} {
+    background-color: rgb(56 56 56);
+    border-color: rgb(56 56 56);
+}
+
+/* grilla del panel de entorno */
+.rstudio-themes-dark-grey td.{{EnvironmentObjectList.nameCol}},
+.rstudio-themes-dark-grey td.{{EnvironmentObjectList.expandCol}},
+.rstudio-themes-dark-grey td.{{EnvironmentObjectList.valueCol}},
+.rstudio-themes-dark-grey td.{{EnvironmentObjectList.resizeCol}},
+.rstudio-themes-dark-grey .{{EnvironmentObjectList.detailRow}},
+.rstudio-themes-dark-grey .{{EnvironmentObjectList.categoryHeaderRow}} {
+    border-color: rgb(40 40 40);
+}
+
+/* botones de data frames en el panel de entorno */
+.{{EnvironmentObjectList.expandIcon}} {
+    filter: hue-rotate(42deg) saturate(1.1) brightness(.9);
+}
+
+/* nombres de archivo en el panel Files */
+.{{LinkColumn.link}} {
+    color: #d9cdda !important;
+}
+
+/* resto del texto del panel Files.
+   Antes decía `color: #6a616c; !important;`, con el !important después del
+   punto y coma, así que no tenía efecto de prioridad. */
+.{{FilesListDataGridResources.dataGridCell}} {
+    color: #6a616c !important;
+}
+
+/* texto de los breadcrumbs del panel Files */
+.rstudio-themes-dark .breadcrumb table.{{FileDialogResources.path}} .rstudio-HyperlinkLabel {
+    color: #d9cdda;
+}
+
+/* degradado encima de los breadcrumbs del panel Files */
+.breadcrumb .{{FileDialogResources.fade}},
+.editor_dark .ace_editor_theme .breadcrumb .{{FileDialogResources.fadeWrapper}} {
+    filter: grayscale(1) brightness(0.6);
+}
+
+/* borde del outline de scripts */
+.{{DocumentOutlineWidget.leftSeparator}} {
+    border-left: 1px solid rgb(40 40 40);
+}
+
+/* asterisco de archivo sin guardar */
+.rstudio-themes-dark .gwt-TabLayoutPanelTabs .{{ThemeResources.dirtyTab}} table.rstheme_tabLayoutCenter {
+    color: #a274bb;
+}
+
+/* botones de buscar y reemplazar */
+.rstudio-themes-dark button.{{SmallButton.smallButton}} > table:first-child {
+    border-color: #626262;
+    background: #5a5a5a;
+}
+
+/* alto de línea del buscador */
+.macintosh .{{FindReplaceBar.optionsPanel}},
+.{{FindReplaceBar.optionsPanel}} {
+    line-height: .9;
+}
+
+/* flecha de la caja de búsqueda */
+.{{ThemeResources.searchMagGlass}} {
+    height: 12px;
+    opacity: 0.9;
+}
+
+/* el cartel que aparece arriba cuando RStudio está cargando */
+.{{SlideLabel.container}} {
+    background: #181818 !important;
+    border: 1px solid #1D1D1D !important;
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    padding: 8px 14px;
+    margin: 0 auto 12px;
+    display: table;
+}
+
+/* ventana de "session aborted".
+   Esta clase es la única que el mapa no sabe nombrar, así que va literal y
+   se va a romper en la próxima actualización. `doctor()` la reporta como
+   "sin nombre". */
+.GFRCULXPAB {
+    color: #141414;
+}
+
+/* ocultar los separadores de la barra de herramientas */
+.rstudio-themes-dark .{{ThemeResources.toolbarSeparator}} {
+    opacity: 0;
+}
+
+/* líneas divisorias horizontales oscuras en paneles */
+.rstudio-themes-dark-grey .rstheme_minimizedWindowObject > div:last-child, .rstudio-themes-dark-grey .rstheme_toolbarWrapper {
+    border-color: #151515;
+}
+
+.rstudio-themes-dark.rstudio-theme-aware-dialog .{{ThemeResources.dialogTabPanel}} .gwt-TabLayoutPanelContentContainer, .rstudio-themes-dark.rstudio-theme-aware-dialog .{{ThemeResources.dialogTabPanelNoTabs}} .gwt-TabLayoutPanelContentContainer {
+    background-color: #333333 !important;
+    border-color: #222222 !important;
+}
+
+.rstudio-themes-dark.rstudio-theme-aware-dialog .{{PreferencesDialogBaseResources.sectionChooser}} {
+    background-color: #333333 !important;
+    border-color: #222222 !important;
+}
+
+.rstudio-themes-dark.rstudio-theme-aware-dialog button.{{SmallButton.smallButton}}>table:first-child {
+    background: #2A2A2A;
+    border-color: #1B1A1A;
+    box-shadow: none;
+}
+
+.rstudio-themes-dark.rstudio-theme-aware-dialog .{{PreferencesDialogResources.paneLayoutTable}} td.{{PreferencesDialogResources.paneLayoutTable}} {
+    background-color: rgb(51 51 51);
+    border-color: rgb(34 34 34);
+}
+
+/* link en panel configuración Temas */
+.rstudio-themes-dark.rstudio-theme-aware-dialog a {
+    color: #9467ad;
+}
+
+/* aviso en panel configuración Packages */
+.rstudio-themes-dark.rstudio-theme-aware-dialog .{{PreferencesDialogResources.themeInfobar}} {
+    border-color: rgb(51 51 51);
+    border-radius: 4px;
+}
+
+/* indicación de shortcuts en panel configuración Assistant */
+.rstudio-themes-dark.rstudio-theme-aware-dialog .{{AssistantPreferencesPane.keyboardShortcut}} {
+    background-color: rgb(85 86 86);
+    border-color: #222222;
+}
+
