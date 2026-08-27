@@ -3132,3 +3132,48 @@ input#rstudio_command_palette_search {
 .rstudio-themes-dark-grey .GCOP2I3BMLD, .rstudio-themes-dark-grey .GCOP2I3BMLD .GCOP2I3BDLD {
     border-color: #111111 !important;
 }
+
+/* botones apretados en panel de scripts */
+.rstudio-themes-dark .GFRCULXPWC button.rstudio-themes-inverts[aria-pressed="true"] {
+    background-color: rgb(56 56 56);
+    /* font-weight: bold; */
+    border-bottom: solid 2px #5f5b61;
+}
+
+/* separador de botones
+.rstudio-themes-dark .GFRCULXEX {
+    opacity: 0;
+}
+
+/* borde de búsqueda */
+.rstudio-themes-dark-menus .search {
+    border-color: #2a2a2a;
+}
+
+/* flecha de búsqueda */
+.GFRCULXDV {
+    height: 12px;
+    opacity: 0.9;
+}
+
+/* borde de caja de búsqueda */
+.rstudio-themes-flat .rstudio-themes-dark-grey .rstudio-themes-background {
+    border-bottom: solid 1px #181818;
+}
+
+/* borde de gutter o líneas de script */
+.ace_gutter {
+    background: #1d1d1d;
+    color: #444444;
+    border-right: solid 1px #181818;
+}
+
+/* alto de línea de texto en buscador */
+.macintosh .GFRCULXOXC, .GFRCULXOXC {
+    line-height: .9;
+}
+
+/* quarto outputs que no sean transparentes */
+.gwt-Frame {
+  opacity: 1 !important;
+}
