@@ -192,6 +192,29 @@ input[type="checkbox"]:focus-visible {
   }
 }
 
+/* ventanas emergentes en menús superiores (e.g. git) */
+.rstudio-themes-dark-menus .menuPopupMiddleCenter, .rstudio-themes-dark-menus .themedPopupPanel .popupMiddleCenter, .rstudio-themes-dark-menus .gwt-SuggestBoxPopup .suggestPopupMiddleCenter {
+    border: solid 1px #181818 !important;
+}
+
+/* buscador "Go to file/function" de la barra de menú, sin tocar los demás
+   buscadores del IDE (todos comparten .search y .rstheme_center).
+   El elemento con el id NO es la caja: es el div contenedor que crea el
+   HTMLPanel de GWT, y no se pinta (si se le pone fondo o borde aparece un
+   segundo cuadro alrededor del buscador). La caja es el .search de adentro,
+   y el relleno lo pintan sus tres hijos: los dos extremos de 6px y
+   .rstheme_center, que es el que queda detrás del texto y recibe el fondo de
+   la barra de herramientas desde 03-ide.css con !important. Por eso el fondo
+   va sobre los hijos y hace falta ganarle por especificidad de id. */
+#rstudio_code_search_widget .search {
+    border: solid 1px #282828 !important;
+}
+
+#rstudio_code_search_widget .search,
+#rstudio_code_search_widget .search > div,
+#rstudio_code_search_widget .rstheme_center {
+    background-color: #434343 !important;
+}
 
 /* --------------------------------------------------------------------------
    Reglas desactivadas, con su motivo. Se dejan para no perder la intención.
@@ -208,3 +231,4 @@ input[type="checkbox"]:focus-visible {
     border-color: #404040;
 }
 */
+

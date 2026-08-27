@@ -17,4 +17,4 @@ source("R/doctor.R")
 construir_tema("dark", instalar = TRUE)
 construir_tema("light", instalar = TRUE)
 
-# buscar_clase("GFRCULXJQ")
+# buscar_clase("GFRCULXDTB")

@@ -74,6 +74,41 @@ clase. Si las declaraciones no cuadran con el elemento, el nombre está mal.
 `doctor()` sugiere candidatos del mismo sufijo, pero los marca explícitamente
 como pista a confirmar, no como respuesta.
 
+## Trampa: los `#rstudio_*` no son el elemento que se pinta
+
+Los ids `#rstudio_*` son el selector más estable que hay, pero casi nunca están
+sobre el elemento que tiene el borde o el fondo. Muchos widgets de RStudio son
+un `Composite` cuyo `HTMLPanel` de GWT agrega un `<div>` contenedor propio: el
+id (y las clases que el código Java agrega con `addStyleName`) caen en ese
+contenedor invisible, y la caja visible es su hijo. Si se le pone fondo o borde
+al elemento del id aparece un segundo cuadro alrededor del control.
+
+Ejemplo verificado, el buscador "Go to file/function" de la barra de menú:
+
+```html
+<div id="rstudio_code_search_widget" class="{{CodeSearchResources.codeSearchWidget}}">
+  <div class="search">                      <!-- la caja: borde y alto -->
+    <div class="{{ThemeResources.left}}">    <!-- extremo de 6px, fondo propio -->
+    <div class="rstheme_center">             <!-- el relleno, detrás del texto -->
+    <div class="{{ThemeResources.right}}">   <!-- display:none dentro de .search -->
+```
+
+Dos señales para detectarlo sin abrir el inspector:
+
+- Si `css_rstudio()` devuelve reglas propias de RStudio con combinador de
+  descendencia (`.GFRCULXDTB .search {...}`), la clase del widget está en un
+  ancestro, no en el elemento estilado.
+- La plantilla UiBinder se puede reconstruir del `.cache.js`: la función que
+  arma el HTML concatena trozos literales (`MBv="<div class='"`,
+  `PBv="'> <div class='"`, ...) con los accesores de estilo. Buscar la función
+  que recibe `styles.<algo>()` y resolver esos trozos da el DOM exacto.
+
+Corolario para escribir reglas: apuntar el borde y el fondo a los hijos
+(`#id .search`, `#id .search > div`) y dejar el elemento del id sin pintar. El
+`#id` sirve para acotar el alcance —los buscadores del IDE comparten `.search`
+y `.rstheme_center`— y además gana en especificidad (1-1-0) contra los
+`!important` de los bloques generados (0-3-0), que solo usan clases.
+
 ## Convenciones
 
 - Comentarios y nombres de funciones en español.
@@ -96,6 +131,9 @@ como pista a confirmar, no como respuesta.
   falta.
 - `mapa_clases()` y `js_rstudio()` cachean por sesión: parsear el `.cache.js`
   de 7 MB toma unos segundos.
+- `construir_tema(instalar = TRUE)` necesita RStudio corriendo (usa
+  `rstudioapi`); desde `Rscript` falla con "RStudio not running". Para
+  verificar un cambio en la terminal, construir sin instalar.
 
 ## Pendientes conocidos
 
