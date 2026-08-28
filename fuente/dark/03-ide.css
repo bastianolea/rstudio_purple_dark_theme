@@ -13,11 +13,11 @@
 .rstudio-themes-flat .rstudio-themes-dark-grey [role="banner"] + [role="navigation"] > table > tbody > tr > td,
 .rstudio-themes-flat .rstudio-themes-dark-grey header + [role="navigation"] > table > tbody > tr > td {
   background: #282828;
-  border-color: #181818;
+  border-color: #151515;
 }
 
 .rstudio-themes-flat .rstudio-themes-dark-grey .rstudio-themes-border {
-  border-color: #181818;
+  border-color: #151515;
 }
 
 /* inactive tabs */
@@ -217,11 +217,11 @@ input#rstudio_command_palette_search {
 
 #rstudio_command_palette_list {
   background-color: #181818;
-  border-color: #181818;
+  border-color: #151515;
 }
 
 .rstudio-themes-flat .rstudio-themes-border {
-  border-color: #181818;
+  border-color: #151515;
 }
 
 .rstudio-themes-flat .gwt-PopupPanel .popupContent #rstudio_command_palette_list [id*="rstudio_command_"] table .gwt-Label,

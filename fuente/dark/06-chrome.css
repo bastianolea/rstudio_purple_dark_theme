@@ -295,3 +295,8 @@
     border-color: #222222;
 }
 
+/* botón editor visual y outline no seleccionado */
+.rstudio-themes-dark .{{ThemeResources.toolbarButton}} {
+    background-color: #383838;
+    border-color: #383838;
+}

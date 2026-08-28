@@ -14,9 +14,9 @@ source("R/mapa-clases.R")
 source("R/construir.R")
 source("R/doctor.R")
 
-doctor()
+# doctor()
 
 construir_tema("dark", instalar = TRUE)
 construir_tema("light", instalar = TRUE)
 
-# buscar_clase("GFRCULXDTB")
+# buscar_clase("GCOP2I3BHW")
