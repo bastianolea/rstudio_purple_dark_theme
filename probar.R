@@ -14,6 +14,8 @@ source("R/mapa-clases.R")
 source("R/construir.R")
 source("R/doctor.R")
 
+doctor()
+
 construir_tema("dark", instalar = TRUE)
 construir_tema("light", instalar = TRUE)
 
