@@ -22,7 +22,7 @@ fuente/dark/05-estable.css    parches con clases estables de RStudio
 fuente/dark/06-chrome.css     parches con {{nombres.semanticos}}
 fuente/light/                 igual, con 02-base.css unificado
 
-R/mapa-clases.R   ruta_rstudio, archivo_permutacion, mapa_clases, clase
+R/clases.R   ruta_rstudio, archivo_permutacion, mapa_clases, clase
 R/construir.R     construir_tema, resolver_tokens, renombrar_tema, validar_css
 R/doctor.R        doctor, buscar_clase, buscar_miembro, css_rstudio
 ```
@@ -154,7 +154,7 @@ y `.rstheme_center`— y además gana en especificidad (1-1-0) contra los
 ## Verificación después de tocar la fuente
 
 ```r
-source("R/mapa-clases.R"); source("R/construir.R"); source("R/doctor.R")
+source("R/clases.R"); source("R/construir.R"); source("R/doctor.R")
 construir_tema("dark"); construir_tema("light")
 doctor()   # debe dar OBSOLETAS: 0 y 0 tokens sin resolver en los temas -2
 ```

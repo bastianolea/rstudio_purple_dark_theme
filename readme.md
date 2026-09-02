@@ -68,7 +68,7 @@ se extrae de la propia instalación de RStudio, cruzando
 
 
 ```r
-source("R/mapa-clases.R"); source("R/construir.R"); source("R/doctor.R")
+source("R/clases.R"); source("R/construir.R"); source("R/doctor.R")
 ```
 
 Obtener el nombre semántico de la clase ofuscada:

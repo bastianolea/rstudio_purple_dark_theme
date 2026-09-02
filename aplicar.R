@@ -5,7 +5,7 @@
 #
 # Si construir_tema() falla porque algún nombre ya no existe, usar `doctor()`
 
-source("R/mapa-clases.R")
+source("R/clases.R")
 source("R/construir.R")
 source("R/doctor.R")
 

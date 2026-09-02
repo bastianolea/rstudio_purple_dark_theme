@@ -1,4 +1,4 @@
-# mapa-clases.R --------------------------------------------------------------
+# clases.R --------------------------------------------------------------
 #
 # Traduce los nombres semánticos de los elementos de la interfaz de RStudio
 # a las clases CSS ofuscadas que usa la versión instalada.
@@ -20,7 +20,7 @@
 # ~1500 de las ~1660 clases ofuscadas del bundle.
 #
 # Uso:
-#   source("R/mapa-clases.R")
+#   source("R/clases.R")
 #   m <- mapa_clases()
 #   clase("ThemeResources.windowFrameObject")   # -> "GFRCULXJX"
 

@@ -1,4 +1,4 @@
-/* rs-theme-name: Basti Purple Dark 2 */
+/* rs-theme-name: Basti Purple Dark */
 /* https://bastianolea.rbind.io/ */
 /* Default Dark by Chris Kempson, modified by Bastián Olea Herrera */
 /* rs-theme-is-dark: TRUE */
@@ -2939,7 +2939,7 @@ input[type="checkbox"]:focus-visible {
    RStudio instalada (hoy .GFRCULXJX). Para averiguar el nombre de un elemento
    nuevo:
 
-       source("R/mapa-clases.R"); source("R/doctor.R")
+       source("R/clases.R"); source("R/doctor.R")
        buscar_miembro("outline")        # por nombre
        buscar_clase("GFRCULXPQC")       # por la clase que muestra el inspector
 

@@ -11,7 +11,7 @@
 # ofuscada que hayas visto en el inspector.
 #
 # Uso:
-#   source("R/mapa-clases.R"); source("R/doctor.R")
+#   source("R/clases.R"); source("R/doctor.R")
 #   doctor()
 #   buscar_miembro("statusBar")
 #   buscar_clase("GFRCULXPQC")

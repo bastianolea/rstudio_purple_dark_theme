@@ -14,10 +14,12 @@
 #   fuente/dark/06-chrome.css     parches con {{nombres.semanticos}}
 #
 # Uso:
-#   source("R/mapa-clases.R"); source("R/construir.R")
+#   source("R/clases.R"); source("R/construir.R")
 #   construir_tema("dark", instalar = TRUE)
 
-if (!exists("mapa_clases")) source(file.path("R", "mapa-clases.R"))
+if (!exists("mapa_clases")) {
+  source(file.path("R", "clases.R"))
+}
 
 TOKEN_RX <- "\\{\\{([A-Za-z0-9_.$]+)\\}\\}"
 
@@ -34,26 +36,39 @@ TOKEN_RX <- "\\{\\{([A-Za-z0-9_.$]+)\\}\\}"
 #'   no resuelve. Si FALSE, avisa y omite las reglas afectadas, de modo que el
 #'   tema salga usable igual: pierde ese detalle del chrome pero no se rompe.
 #'   Útil para generar un tema que otras personas usarán en otras versiones.
-construir_tema <- function(tema = c("dark", "light"),
-                           sufijo = "2",
-                           salida = NULL,
-                           instalar = FALSE,
-                           estricto = TRUE,
-                           app = ruta_rstudio()) {
+construir_tema <- function(
+  tema = c("dark", "light"),
+  sufijo = NULL,
+  salida = NULL,
+  instalar = FALSE,
+  estricto = TRUE,
+  app = ruta_rstudio()
+) {
   tema <- match.arg(tema)
   dir_fuente <- file.path("fuente", tema)
   if (!dir.exists(dir_fuente)) {
     stop("No existe ", dir_fuente, call. = FALSE)
   }
   if (is.null(salida)) {
-    salida <- paste0("basti-purple-", tema,
-                     if (nzchar(sufijo)) paste0("-", sufijo) else "", ".rstheme")
+    salida <- paste0(
+      "basti-purple-",
+      tema,
+      ".rstheme"
+    )
   }
 
-  archivos <- sort(list.files(dir_fuente, pattern = "\\.css$", full.names = TRUE))
-  if (!length(archivos)) stop("No hay archivos .css en ", dir_fuente, call. = FALSE)
+  archivos <- sort(list.files(
+    dir_fuente,
+    pattern = "\\.css$",
+    full.names = TRUE
+  ))
+  if (!length(archivos)) {
+    stop("No hay archivos .css en ", dir_fuente, call. = FALSE)
+  }
 
-  partes <- lapply(archivos, function(f) paste(readLines(f, warn = FALSE), collapse = "\n"))
+  partes <- lapply(archivos, function(f) {
+    paste(readLines(f, warn = FALSE), collapse = "\n")
+  })
 
   m <- mapa_clases(app)
 
@@ -61,19 +76,32 @@ construir_tema <- function(tema = c("dark", "light"),
   # (rs-theme-name, rs-theme-is-dark) al principio del .rstheme, así que la
   # cabecera tiene que seguir siendo lo primero del archivo.
   aviso <- sprintf(
-    paste0("/* Generado por construir_tema(\"%s\") desde fuente/%s/ — no editar a mano. */\n",
-           "/* RStudio %s, prefijo de ofuscación %s. */"),
-    tema, tema, attr(m, "version"), attr(m, "prefijo"))
+    paste0(
+      "/* Generado por construir_tema(\"%s\") desde fuente/%s/ — no editar a mano. */\n",
+      "/* RStudio %s, prefijo de ofuscación %s. */"
+    ),
+    tema,
+    tema,
+    attr(m, "version"),
+    attr(m, "prefijo")
+  )
   partes <- append(partes, list(aviso), after = 1)
 
   css <- paste(unlist(partes), collapse = "\n\n")
-  css <- renombrar_tema(css, sufijo)
+  # css <- renombrar_tema(css, sufijo)
   css <- resolver_tokens(css, m, estricto = estricto)
   validar_css(css)
 
   writeLines(css, salida, useBytes = TRUE)
-  message("Escrito ", salida, "  (\"", nombre_tema(css), "\", ",
-          length(strsplit(css, "\n")[[1]]), " líneas)")
+  message(
+    "Escrito ",
+    salida,
+    "  (\"",
+    nombre_tema(css),
+    "\", ",
+    length(strsplit(css, "\n")[[1]]),
+    " líneas)"
+  )
 
   if (instalar) {
     rstudioapi::addTheme(salida, apply = TRUE, force = TRUE)
@@ -92,10 +120,17 @@ nombre_tema <- function(css) str_match(css, RX_NOMBRE)[, 3]
 # tema generado junto al anterior hecho a mano: si solo cambiara el nombre del
 # archivo, RStudio mostraría los dos con el mismo nombre y uno pisaría al otro.
 renombrar_tema <- function(css, sufijo) {
-  if (!nzchar(sufijo)) return(css)
+  if (!nzchar(sufijo)) {
+    return(css)
+  }
   if (!str_detect(css, RX_NOMBRE)) {
-    stop("La fuente no declara /* rs-theme-name: ... */, así que no se puede ",
-         "agregar el sufijo \"", sufijo, "\".", call. = FALSE)
+    stop(
+      "La fuente no declara /* rs-theme-name: ... */, así que no se puede ",
+      "agregar el sufijo \"",
+      sufijo,
+      "\".",
+      call. = FALSE
+    )
   }
   str_replace(css, RX_NOMBRE, paste0("\\1\\2 ", sufijo, "\\3"))
 }
@@ -103,24 +138,41 @@ renombrar_tema <- function(css, sufijo) {
 # Reemplaza {{Recurso.miembro}} por la clase ofuscada correspondiente.
 resolver_tokens <- function(css, mapa, estricto = TRUE) {
   usados <- unique(str_match_all(css, TOKEN_RX)[[1]][, 2])
-  if (!length(usados)) return(css)
+  if (!length(usados)) {
+    return(css)
+  }
 
   clases <- clase(usados, mapa)
   faltan <- usados[is.na(clases)]
 
   if (length(faltan)) {
-    detalle <- vapply(faltan, function(tk) {
-      paste0("  ", tk, "\n    ", sugerencias(tk, mapa))
-    }, character(1))
+    detalle <- vapply(
+      faltan,
+      function(tk) {
+        paste0("  ", tk, "\n    ", sugerencias(tk, mapa))
+      },
+      character(1)
+    )
 
     aviso <- paste0(
-      length(faltan), " nombre(s) no resuelven en RStudio ", attr(mapa, "version"), ":\n",
-      paste(detalle, collapse = "\n"), "\n",
-      "Usa buscar_miembro() para encontrar el nombre nuevo, o doctor() para el panorama completo.")
+      length(faltan),
+      " nombre(s) no resuelven en RStudio ",
+      attr(mapa, "version"),
+      ":\n",
+      paste(detalle, collapse = "\n"),
+      "\n",
+      "Usa buscar_miembro() para encontrar el nombre nuevo, o doctor() para el panorama completo."
+    )
 
-    if (estricto) stop(aviso, call. = FALSE)
+    if (estricto) {
+      stop(aviso, call. = FALSE)
+    }
 
-    warning(aviso, "\nSe omiten las reglas que los usan (estricto = FALSE).", call. = FALSE)
+    warning(
+      aviso,
+      "\nSe omiten las reglas que los usan (estricto = FALSE).",
+      call. = FALSE
+    )
     css <- omitir_reglas_con_tokens(css, faltan)
     usados <- setdiff(usados, faltan)
     clases <- clase(usados, mapa)
@@ -143,20 +195,41 @@ sugerencias <- function(token, mapa, n = 6L) {
   if (!length(del_recurso)) {
     candidatos <- mapa$token[mapa$miembro == miembro]
     if (length(candidatos)) {
-      return(paste0("el recurso ", recurso, " ya no existe; hay un miembro '",
-                    miembro, "' en: ", paste(head(candidatos, n), collapse = ", ")))
+      return(paste0(
+        "el recurso ",
+        recurso,
+        " ya no existe; hay un miembro '",
+        miembro,
+        "' en: ",
+        paste(head(candidatos, n), collapse = ", ")
+      ))
     }
     candidatos <- mapa$token
-    cerca <- candidatos[order(utils::adist(token, candidatos))][seq_len(min(n, length(candidatos)))]
-    return(paste0("el recurso ", recurso, " ya no existe. Parecidos: ",
-                  paste(cerca, collapse = ", ")))
+    cerca <- candidatos[order(utils::adist(token, candidatos))][seq_len(min(
+      n,
+      length(candidatos)
+    ))]
+    return(paste0(
+      "el recurso ",
+      recurso,
+      " ya no existe. Parecidos: ",
+      paste(cerca, collapse = ", ")
+    ))
   }
 
   cerca <- del_recurso[order(utils::adist(token, del_recurso))]
-  paste0(recurso, " existe pero no tiene '", miembro, "'. Parecidos: ",
-         paste(head(cerca, n), collapse = ", "),
-         if (length(cerca) > n) paste0(" (y ", length(cerca) - n, " más; ",
-                                       "usa buscar_miembro())") else "")
+  paste0(
+    recurso,
+    " existe pero no tiene '",
+    miembro,
+    "'. Parecidos: ",
+    paste(head(cerca, n), collapse = ", "),
+    if (length(cerca) > n) {
+      paste0(" (y ", length(cerca) - n, " más; ", "usa buscar_miembro())")
+    } else {
+      ""
+    }
+  )
 }
 
 # Borra las reglas CSS que usan alguno de los tokens dados. Se hace a nivel de
@@ -166,9 +239,13 @@ omitir_reglas_con_tokens <- function(css, tokens) {
   enmascarado <- gsub(TOKEN_RX, "\u0001\\1\u0002", css)
   reglas <- str_split(enmascarado, "(?<=\\})")[[1]]
   marcas <- paste0("\u0001", tokens, "\u0002")
-  malas <- vapply(reglas, function(r) {
-    any(vapply(marcas, function(mk) grepl(mk, r, fixed = TRUE), logical(1)))
-  }, logical(1))
+  malas <- vapply(
+    reglas,
+    function(r) {
+      any(vapply(marcas, function(mk) grepl(mk, r, fixed = TRUE), logical(1)))
+    },
+    logical(1)
+  )
   limpio <- paste(reglas[!malas], collapse = "")
   gsub("\u0001([A-Za-z0-9_.$]+)\u0002", "{{\\1}}", limpio)
 }
@@ -181,30 +258,50 @@ validar_css <- function(css) {
   abre <- str_count(css, fixed("/*"))
   cierra <- str_count(css, fixed("*/"))
   if (abre != cierra) {
-    problemas <- c(problemas, sprintf(
-      "comentarios desbalanceados: %d '/*' y %d '*/' (un comentario sin cerrar se ",
-      abre, cierra))
-    problemas <- c(problemas,
-      "  come las reglas que vienen después sin avisar")
+    problemas <- c(
+      problemas,
+      sprintf(
+        "comentarios desbalanceados: %d '/*' y %d '*/' (un comentario sin cerrar se ",
+        abre,
+        cierra
+      )
+    )
+    problemas <- c(problemas, "  come las reglas que vienen después sin avisar")
   }
 
   # las llaves de dentro de comentarios no cuentan
   sin_comentarios <- gsub("/\\*.*?\\*/", "", css)
-  if (str_count(sin_comentarios, fixed("{")) != str_count(sin_comentarios, fixed("}"))) {
-    problemas <- c(problemas, sprintf("llaves desbalanceadas: %d '{' y %d '}'",
-                                      str_count(sin_comentarios, fixed("{")),
-                                      str_count(sin_comentarios, fixed("}"))))
+  if (
+    str_count(sin_comentarios, fixed("{")) !=
+      str_count(sin_comentarios, fixed("}"))
+  ) {
+    problemas <- c(
+      problemas,
+      sprintf(
+        "llaves desbalanceadas: %d '{' y %d '}'",
+        str_count(sin_comentarios, fixed("{")),
+        str_count(sin_comentarios, fixed("}"))
+      )
+    )
   }
 
   restantes <- str_match_all(css, TOKEN_RX)[[1]]
   if (nrow(restantes)) {
-    problemas <- c(problemas, paste0("quedaron tokens sin resolver: ",
-                                     paste(unique(restantes[, 1]), collapse = ", ")))
+    problemas <- c(
+      problemas,
+      paste0(
+        "quedaron tokens sin resolver: ",
+        paste(unique(restantes[, 1]), collapse = ", ")
+      )
+    )
   }
 
   if (length(problemas)) {
-    stop("El CSS generado no pasó la validación:\n  ",
-         paste(problemas, collapse = "\n  "), call. = FALSE)
+    stop(
+      "El CSS generado no pasó la validación:\n  ",
+      paste(problemas, collapse = "\n  "),
+      call. = FALSE
+    )
   }
   invisible(TRUE)
 }
