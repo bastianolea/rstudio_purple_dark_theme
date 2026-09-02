@@ -1,10 +1,10 @@
-/* rs-theme-name: Basti Purple Light */
+/* rs-theme-name: Basti Purple Light 2 */
 /* https://bastianolea.rbind.io/ */
 /* Based in Tomorrow theme, modified by Bastián Olea */
 /* rs-theme-is-dark: FALSE */
 
-
-/* al final están los cambios más recientes */
+/* Generado por construir_tema("light") desde fuente/light/ — no editar a mano. */
+/* RStudio 2026.08.2+200, prefijo de ofuscación GCOP2I3B. */
 
 
 .ace_gutter {
@@ -776,30 +776,6 @@
 
 
 
-/* color lateral de mensajes */
-.rstudio-themes-default .GBQS1KEBKI {
-    border-left: 2px solid #8e5fad;
-}
-
-/* color línea lateral de warnings */
-.rstudio-themes-default .GBQS1KEBMI {
-    border-left: 2px solid #dc66b1;
-}
-/* texto warnings */
-.rstudio-themes-default .GBQS1KEBBJ {
-    color: #d057a3;
-}
-
-/* color línea lateral de errores */
-.rstudio-themes-default .GBQS1KEBJI {
-    border-left: 2px solid #cd1c69;
-}
-/* texto de errores */
-.rstudio-themes-default .GBQS1KEBGI {
-    color: #c01a62;
-}
-
-
 /* funciones */
 .ace_entity.ace_name.ace_function, .ace_support.ace_function, .ace_variable {
     color: #724790;
@@ -848,3 +824,39 @@
     color: #ab9cab !important;
 }
 
+
+/* ==========================================================================
+   Parches del chrome del IDE  —  nombres semánticos, no clases ofuscadas
+   --------------------------------------------------------------------------
+   Ver fuente/dark/06-chrome.css para la explicación completa. En el tema
+   claro solo hacen falta los colores de los mensajes de la consola.
+
+   Antes apuntaban a las clases de RStudio 2026.04 y llevaban dos versiones
+   sin aplicarse.
+   ========================================================================== */
+
+
+/* color lateral de mensajes */
+.rstudio-themes-default .GCOP2I3BKI {
+    border-left: 2px solid #8e5fad;
+}
+
+/* color línea lateral de warnings */
+.rstudio-themes-default .GCOP2I3BMI {
+    border-left: 2px solid #dc66b1;
+}
+
+/* texto warnings */
+.rstudio-themes-default .GCOP2I3BBJ {
+    color: #d057a3;
+}
+
+/* color línea lateral de errores */
+.rstudio-themes-default .GCOP2I3BJI {
+    border-left: 2px solid #cd1c69;
+}
+
+/* texto de errores */
+.rstudio-themes-default .GCOP2I3BGI {
+    color: #c01a62;
+}

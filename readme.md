@@ -1,23 +1,22 @@
 # Basti Purple Dark (y Light)
 
-![](img/pantallazo_chico.png)
+![](img/rstudio.png)
 
 Temas para RStudio con una paleta morada y rosada. El tema oscuro se basa en
 _base16 Default Dark_ de [`{rsthemes}`](https://github.com/gadenbuie/rsthemes),
-que a su vez viene de [base16](https://github.com/chriskempson/base16); el
+que a su vez viene de [base16](https://github.com/chriskempson/base16); el tema
 claro se basa en el tema _Tomorrow_.
 
-![](img/pantallazo_2.png)
 
 ## Instalación
 
-Descarga `basti-purple-dark-2.rstheme` o `basti-purple-light-2.rstheme` de
+Descarga `basti-purple-dark.rstheme` o `basti-purple-light.rstheme` de
 este repositorio. En RStudio, abre _Global Options_ (`⌘;`) → _Appearance_ →
 botón _Add..._ y elige el archivo.
 
 Estos temas son generados a partir del script `aplicar.R` para que funcionen correctamente con la **última** versión de RStudio.
 
-Si actualizaste  RStudio o no tienes la última versión, clona este repositorio y ejecuta `source("aplicar.R")` para generar y aplicar una versión del tema específica para tu versión de RStudio.
+Si actualizaste RStudio o no tienes la última versión, clona este repositorio y ejecuta `aplicar.R` para generar y aplicar una versión del tema específica para tu versión de RStudio.
 
 ## Generar temas
 
