@@ -42,7 +42,8 @@ público de temas cubre solo `.ace_*`, `.xterm*`, `.rstudio-themes-*`,
 El mapa nombre semántico → clase ofuscada se extrae de la instalación de
 RStudio cruzando dos archivos que Posit sí envía:
 
-1. `www-symbolmaps/<hash>.symbolMap`, campos
+1. `www-symbolmaps/<hash>.symbolMap` (desde 2026.10 viene comprimido como
+   `.symbolMap.gz`; `archivo_permutacion()` acepta ambos), campos
    `simbolo,jsniIdent,claseJava,miembro,archivo,linea,fragmento`. Interesan las
    líneas con `ClientBundleGenerator` en la clase y `()Ljava/lang/String;` en el
    jsniIdent.
@@ -51,10 +52,27 @@ RStudio cruzando dos archivos que Posit sí envía:
 
 Solo una de las ~15 permutaciones `.cache.js` lleva el CSS; se identifica por
 contener `rstheme_toolbarWrapper`. El prefijo de ofuscación es único por
-compilación pero su largo varía (7 en `GFRCULX`, 8 en `GBQS1KEB` y `GNJ4OY0C`),
-así que se detecta por frecuencia, no se asume.
+compilación pero su largo varía (7 en `GFRCULX`, 8 en `GBQS1KEB`, `GNJ4OY0C` y
+`GCOP2I3B`), así que se detecta por frecuencia, no se asume.
 
-En RStudio 2026.07.1 el mapa resuelve 1546 de 1661 clases.
+Cobertura del mapa: 1546 de 1661 clases en 2026.07.1; 1552 clases nombradas en
+2026.10.0+233 (hash de permutación `C8599449...`, prefijo `GCOP2I3B`).
+
+## Después de actualizar RStudio
+
+`aplicar.R` es el flujo normal (`construir_tema(..., instalar = TRUE)` para
+`dark` y `light`). Si falla:
+
+1. **Revisar primero el formato de los archivos que Posit envía**, antes de
+   suponer que falta algo. En 2026.10 el error "Falta .../www-symbolmaps"
+   era engañoso: la carpeta existía, pero el archivo pasó de `.symbolMap` a
+   `.symbolMap.gz` y el código solo buscaba el nombre plano. Comprobar con
+   `ls www-symbolmaps` y `ls www/rstudio` bajo `ruta_rstudio()`.
+2. Correr `doctor()`. Las clases literales (con punto delante) que ya no
+   existen salen como OBSOLETAS; si el sufijo sigue existiendo, **no
+   reasignarlo**: casi siempre es otro elemento (ver "Trampa principal").
+3. Reglas con clase literal que no se pueden renombrar: desactivarlas
+   comentadas con el motivo (convención abajo), no adivinar.
 
 ## Trampa principal
 
@@ -117,6 +135,11 @@ y `.rstheme_center`— y además gana en especificidad (1-1-0) contra los
 - Las reglas recuperadas de versiones anteriores se marcan `RECUPERADA:` con el
   motivo, para poder revisarlas a ojo y revertirlas.
 - Las reglas desactivadas se dejan comentadas con su motivo, no se borran.
+- Los comentarios de la fuente CSS no deben escribir una clase ofuscada con
+  punto delante (`.GXXXXXXX`): `doctor()` extrae `(?<=\.)[A-Z][A-Z0-9]{7,13}`
+  del CSS sin ignorar comentarios y la reportaría como obsoleta. Nombrar la
+  clase sin punto. Los ejemplos de versiones viejas en los comentarios de
+  cabecera tampoco deben llevar prefijos de una versión anterior.
 - Los temas generados llevan sufijo `-2` en el archivo y en `rs-theme-name`,
   para convivir con los `.rstheme` anteriores hechos a mano (que se conservan
   solo como referencia y están rotos en 2026.07+). Se cambia con
@@ -134,12 +157,21 @@ y `.rstheme_center`— y además gana en especificidad (1-1-0) contra los
 - `construir_tema(instalar = TRUE)` necesita RStudio corriendo (usa
   `rstudioapi`); desde `Rscript` falla con "RStudio not running". Para
   verificar un cambio en la terminal, construir sin instalar.
+- El asistente no puede instalar el tema: copiar a `~/.config/rstudio/themes`
+  queda bloqueado por el sandbox del agente ("Path is not within the project").
+  El agente construye y verifica con `doctor()` sin `instalar`; el usuario
+  corre `aplicar.R` desde su propia sesión de RStudio para aplicar el tema.
+- Los `.rstheme` de la raíz del repo son salida del build: cambian en cada
+  `construir_tema()`, incluso sin instalar.
 
 ## Pendientes conocidos
 
-- `GFRCULXPAB` (ventana de "session aborted") va literal en `06-chrome.css`:
-  es la única clase del tema que el mapa no sabe nombrar, y se va a romper en
-  la próxima actualización. `doctor()` la reporta como "sin nombre".
+- La regla de la ventana de "session aborted" (clase literal `GFRCULXPAB`, la
+  única que el mapa nunca supo nombrar) quedó desactivada en 2026.10.0 porque
+  la clase desapareció y el sufijo `PAB` ahora es otro elemento. Hay que
+  reescribirla con nombre semántico: provocar la ventana y leer la clase en el
+  inspector. Solo cambiaba `color: #141414` en esa ventana; la declaración
+  original está en el comentario de `06-chrome.css`.
 - Los bordes de paneles y la barra de estado se unificaron en `#111111`,
   tomando la intención del último cambio hecho a mano. Antes solo algunas ramas
   del selector recibían ese valor y el resto quedaba en `rgb(22,22,22)`.

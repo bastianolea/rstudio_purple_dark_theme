@@ -4,7 +4,7 @@
 /* rs-theme-is-dark: TRUE */
 
 /* Generado por construir_tema("dark") desde fuente/dark/ — no editar a mano. */
-/* RStudio 2026.08.2+200, prefijo de ofuscación GCOP2I3B. */
+/* RStudio 2026.10.0+233, prefijo de ofuscación GCOP2I3B. */
 
 .ace_gutter {
   background: #1d1d1d;
@@ -2933,15 +2933,15 @@ input[type="checkbox"]:focus-visible {
    Acá esos elementos se escriben con su nombre semántico, entre llaves
    dobles:
 
-       .GCOP2I3BJX
+       .GCOP2I3BKX
 
    y `construir_tema()` lo reemplaza por la clase real de la versión de
-   RStudio instalada (hoy .GFRCULXJX). Para averiguar el nombre de un elemento
+   RStudio instalada (p. ej. .GCOP2I3BJX). Para averiguar el nombre de un elemento
    nuevo:
 
        source("R/clases.R"); source("R/doctor.R")
        buscar_miembro("outline")        # por nombre
-       buscar_clase("GFRCULXPQC")       # por la clase que muestra el inspector
+       buscar_clase("GCOP2I3BPQC")       # por la clase que muestra el inspector
 
    Lo más nuevo, al final.
    ========================================================================== */
@@ -2954,16 +2954,16 @@ input[type="checkbox"]:focus-visible {
    las tablas de paneles y del marco de ventana pasan de rgb(22 22 22) a
    #111111. Si prefieres el anterior, cambia el color acá. */
 .rstudio-themes-dark-grey .rstudio-themes-border,
-.rstudio-themes-dark-grey table.GCOP2I3BIS > tbody > tr > td,
-.rstudio-themes-dark-grey .GCOP2I3BJX > div:last-child,
+.rstudio-themes-dark-grey table.GCOP2I3BJS > tbody > tr > td,
+.rstudio-themes-dark-grey .GCOP2I3BKX > div:last-child,
 .rstudio-themes-dark-grey .rstheme_secondaryToolbar,
 .rstudio-themes-dark-grey .gwt-TabLayoutPanel > div > div.gwt-TabLayoutPanelTabs {
     border-color: #151515 !important;
 }
 
 /* bordes de la barra de estado (abajo del editor) */
-.rstudio-themes-dark-grey .GCOP2I3BMLD,
-.rstudio-themes-dark-grey .GCOP2I3BMLD .GCOP2I3BDLD {
+.rstudio-themes-dark-grey .GCOP2I3BOMD,
+.rstudio-themes-dark-grey .GCOP2I3BOMD .GCOP2I3BFMD {
     border-color: #151515 !important;
 }
 
@@ -2972,22 +2972,22 @@ input[type="checkbox"]:focus-visible {
    tema oscuro se ve. El parche existía desde antes pero apuntaba a clases de
    RStudio 2025 y llevaba dos versiones sin aplicarse. Los sufijos se habían
    desplazado una posición, así que los nombres no eran los que parecían. */
-.rstudio-themes-dark-grey .GCOP2I3BJX.GCOP2I3BDQ,
-.rstudio-themes-dark-grey .GCOP2I3BJX.GCOP2I3BDQ div.GCOP2I3BAQ .GCOP2I3BDU {
+.rstudio-themes-dark-grey .GCOP2I3BKX.GCOP2I3BDQ,
+.rstudio-themes-dark-grey .GCOP2I3BKX.GCOP2I3BDQ div.GCOP2I3BAQ .GCOP2I3BEU {
     border-color: #151515;
 }
 
-.rstudio-themes-dark-grey .GCOP2I3BJX.GCOP2I3BDQ div.GCOP2I3BAQ .GCOP2I3BDU {
+.rstudio-themes-dark-grey .GCOP2I3BKX.GCOP2I3BDQ div.GCOP2I3BAQ .GCOP2I3BEU {
     background: #383838;
 }
 
 /* borde de la barra de herramientas */
-.rstudio-themes-dark .GCOP2I3BGW {
+.rstudio-themes-dark .GCOP2I3BHW {
     border-color: #606060;
 }
 
 /* botones de la barra de herramientas */
-.rstudio-themes-dark .GCOP2I3BHW {
+.rstudio-themes-dark .GCOP2I3BIW {
     background-color: #383838;
     border-color: #151515;
 }
@@ -2995,12 +2995,12 @@ input[type="checkbox"]:focus-visible {
 /* RECUPERADA: alineación del botón de modo visual (Source/Visual).
    Estaba escrita con la clase del toolbar en la posición del botón; ahora
    apunta al toolbar de markdown, que es lo que RStudio usa ahí. */
-.GCOP2I3BBXC button.rstudio-themes-inverts div {
+.GCOP2I3BHXC button.rstudio-themes-inverts div {
     margin-top: 1px;
 }
 
 /* botones apretados en el panel de scripts */
-.rstudio-themes-dark .GCOP2I3BBXC button.rstudio-themes-inverts[aria-pressed="true"] {
+.rstudio-themes-dark .GCOP2I3BHXC button.rstudio-themes-inverts[aria-pressed="true"] {
     background-color: rgb(56 56 56);
     border-bottom: solid 2px #5f5b61;
 }
@@ -3034,18 +3034,18 @@ input[type="checkbox"]:focus-visible {
 }
 
 /* panel de nuevo proyecto: pasos del asistente */
-.rstudio-themes-dark.rstudio-theme-aware-dialog .GCOP2I3BO4,
 .rstudio-themes-dark.rstudio-theme-aware-dialog .GCOP2I3BP4,
-.rstudio-themes-dark.rstudio-theme-aware-dialog .GCOP2I3BB5 {
+.rstudio-themes-dark.rstudio-theme-aware-dialog .GCOP2I3BA5,
+.rstudio-themes-dark.rstudio-theme-aware-dialog .GCOP2I3BC5 {
     background-image: none;
     background-color: rgb(56 56 56);
     border-bottom: 1px solid rgb(40 40 40);
 }
 
 /* RECUPERADA: hover de los pasos del asistente */
-.rstudio-themes-dark.rstudio-theme-aware-dialog .GCOP2I3BO4:hover,
 .rstudio-themes-dark.rstudio-theme-aware-dialog .GCOP2I3BP4:hover,
-.rstudio-themes-dark.rstudio-theme-aware-dialog .GCOP2I3BB5:hover {
+.rstudio-themes-dark.rstudio-theme-aware-dialog .GCOP2I3BA5:hover,
+.rstudio-themes-dark.rstudio-theme-aware-dialog .GCOP2I3BC5:hover {
     background: #181818;
 }
 
@@ -3074,29 +3074,29 @@ input[type="checkbox"]:focus-visible {
 
 /* botón del Posit Assistant */
 #rstudio_assistant_toggle_button,
-.rstudio-themes-dark .GCOP2I3BJP.GCOP2I3BLW {
+.rstudio-themes-dark .GCOP2I3BJP.GCOP2I3BMW {
     border-color: #282828;
     background-color: #434343;
 }
 
 /* botón de outline en los scripts */
-.rstudio-themes-dark .GCOP2I3BLW {
+.rstudio-themes-dark .GCOP2I3BMW {
     background-color: rgb(56 56 56);
     border-color: rgb(56 56 56);
 }
 
 /* grilla del panel de entorno */
-.rstudio-themes-dark-grey td.GCOP2I3BLDC,
-.rstudio-themes-dark-grey td.GCOP2I3BJDC,
-.rstudio-themes-dark-grey td.GCOP2I3BAEC,
-.rstudio-themes-dark-grey td.GCOP2I3BNDC,
-.rstudio-themes-dark-grey .GCOP2I3BIDC,
-.rstudio-themes-dark-grey .GCOP2I3BDDC {
+.rstudio-themes-dark-grey td.GCOP2I3BBEC,
+.rstudio-themes-dark-grey td.GCOP2I3BPDC,
+.rstudio-themes-dark-grey td.GCOP2I3BGEC,
+.rstudio-themes-dark-grey td.GCOP2I3BDEC,
+.rstudio-themes-dark-grey .GCOP2I3BODC,
+.rstudio-themes-dark-grey .GCOP2I3BJDC {
     border-color: rgb(40 40 40);
 }
 
 /* botones de data frames en el panel de entorno */
-.GCOP2I3BKDC {
+.GCOP2I3BAEC {
     filter: hue-rotate(42deg) saturate(1.1) brightness(.9);
 }
 
@@ -3108,7 +3108,7 @@ input[type="checkbox"]:focus-visible {
 /* resto del texto del panel Files.
    Antes decía `color: #6a616c; !important;`, con el !important después del
    punto y coma, así que no tenía efecto de prioridad. */
-.GCOP2I3BKFC {
+.GCOP2I3BAGC {
     color: #6a616c !important;
 }
 
@@ -3124,7 +3124,7 @@ input[type="checkbox"]:focus-visible {
 }
 
 /* borde del outline de scripts */
-.GCOP2I3BBRC {
+.GCOP2I3BHRC {
     border-left: 1px solid rgb(40 40 40);
 }
 
@@ -3134,25 +3134,25 @@ input[type="checkbox"]:focus-visible {
 }
 
 /* botones de buscar y reemplazar */
-.rstudio-themes-dark button.GCOP2I3BA3 > table:first-child {
+.rstudio-themes-dark button.GCOP2I3BB3 > table:first-child {
     border-color: #626262;
     background: #5a5a5a;
 }
 
 /* alto de línea del buscador */
-.macintosh .GCOP2I3BAYC,
-.GCOP2I3BAYC {
+.macintosh .GCOP2I3BGYC,
+.GCOP2I3BGYC {
     line-height: .9;
 }
 
 /* flecha de la caja de búsqueda */
-.GCOP2I3BDV {
+.GCOP2I3BEV {
     height: 12px;
     opacity: 0.9;
 }
 
 /* el cartel que aparece arriba cuando RStudio está cargando */
-.GCOP2I3BL2 {
+.GCOP2I3BM2 {
     background: #181818 !important;
     border: 1px solid #1D1D1D !important;
     border-top: none;
@@ -3163,16 +3163,19 @@ input[type="checkbox"]:focus-visible {
     display: table;
 }
 
-/* ventana de "session aborted".
-   Esta clase es la única que el mapa no sabe nombrar, así que va literal y
-   se va a romper en la próxima actualización. `doctor()` la reporta como
-   "sin nombre". */
-.GFRCULXPAB {
-    color: #141414;
-}
+/* DESACTIVADA en 2026.10.0: ventana de "session aborted".
+   Iba con la clase literal GFRCULXPAB (selector de clase, con punto), que
+   el mapa nunca supo nombrar. En 2026.10.0 esa clase ya no existe y no hay
+   forma de saber cuál es el elemento equivalente. El sufijo PAB sí existe
+   en el bundle nuevo, pero es otro elemento (font-size:1.7em;
+   font-weight:bold; margin-bottom:15px), así que NO se reasigna. Si hace
+   falta, provocar la ventana, leer la clase en el inspector y escribir la
+   regla con su nombre semántico (`buscar_clase()` / `css_rstudio()`).
+   Declaración original: color: #141414;
+*/
 
 /* ocultar los separadores de la barra de herramientas */
-.rstudio-themes-dark .GCOP2I3BEX {
+.rstudio-themes-dark .GCOP2I3BFX {
     opacity: 0;
 }
 
@@ -3191,13 +3194,13 @@ input[type="checkbox"]:focus-visible {
     border-color: #222222 !important;
 }
 
-.rstudio-themes-dark.rstudio-theme-aware-dialog button.GCOP2I3BA3>table:first-child {
+.rstudio-themes-dark.rstudio-theme-aware-dialog button.GCOP2I3BB3>table:first-child {
     background: #2A2A2A;
     border-color: #1B1A1A;
     box-shadow: none;
 }
 
-.rstudio-themes-dark.rstudio-theme-aware-dialog .GCOP2I3BJVB td.GCOP2I3BJVB {
+.rstudio-themes-dark.rstudio-theme-aware-dialog .GCOP2I3BOVB td.GCOP2I3BOVB {
     background-color: rgb(51 51 51);
     border-color: rgb(34 34 34);
 }
@@ -3208,19 +3211,24 @@ input[type="checkbox"]:focus-visible {
 }
 
 /* aviso en panel configuración Packages */
-.rstudio-themes-dark.rstudio-theme-aware-dialog .GCOP2I3BAWB {
+.rstudio-themes-dark.rstudio-theme-aware-dialog .GCOP2I3BGWB {
     border-color: rgb(51 51 51);
     border-radius: 4px;
 }
 
 /* indicación de shortcuts en panel configuración Assistant */
-.rstudio-themes-dark.rstudio-theme-aware-dialog .GCOP2I3BDVB {
+.rstudio-themes-dark.rstudio-theme-aware-dialog .GCOP2I3BEVB {
     background-color: rgb(85 86 86);
     border-color: #222222;
 }
 
 /* botón editor visual y outline no seleccionado */
-.rstudio-themes-dark .GCOP2I3BHW {
+.rstudio-themes-dark .GCOP2I3BIW {
     background-color: #383838;
     border-color: #383838;
+}
+
+/* pestaña seleccionada destacada */
+.rstudio-highlight-active-tabs .rstudio-themes-dark .docTabPanel .gwt-TabLayoutPanelTab-selected::before {
+  color: #764a8e;
 }

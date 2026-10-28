@@ -12,12 +12,12 @@
        .{{ThemeResources.windowFrameObject}}
 
    y `construir_tema()` lo reemplaza por la clase real de la versión de
-   RStudio instalada (hoy .GFRCULXJX). Para averiguar el nombre de un elemento
+   RStudio instalada (p. ej. .GCOP2I3BJX). Para averiguar el nombre de un elemento
    nuevo:
 
        source("R/clases.R"); source("R/doctor.R")
        buscar_miembro("outline")        # por nombre
-       buscar_clase("GFRCULXPQC")       # por la clase que muestra el inspector
+       buscar_clase("GCOP2I3BPQC")       # por la clase que muestra el inspector
 
    Lo más nuevo, al final.
    ========================================================================== */
@@ -239,13 +239,16 @@
     display: table;
 }
 
-/* ventana de "session aborted".
-   Esta clase es la única que el mapa no sabe nombrar, así que va literal y
-   se va a romper en la próxima actualización. `doctor()` la reporta como
-   "sin nombre". */
-.GFRCULXPAB {
-    color: #141414;
-}
+/* DESACTIVADA en 2026.10.0: ventana de "session aborted".
+   Iba con la clase literal GFRCULXPAB (selector de clase, con punto), que
+   el mapa nunca supo nombrar. En 2026.10.0 esa clase ya no existe y no hay
+   forma de saber cuál es el elemento equivalente. El sufijo PAB sí existe
+   en el bundle nuevo, pero es otro elemento (font-size:1.7em;
+   font-weight:bold; margin-bottom:15px), así que NO se reasigna. Si hace
+   falta, provocar la ventana, leer la clase en el inspector y escribir la
+   regla con su nombre semántico (`buscar_clase()` / `css_rstudio()`).
+   Declaración original: color: #141414;
+*/
 
 /* ocultar los separadores de la barra de herramientas */
 .rstudio-themes-dark .{{ThemeResources.toolbarSeparator}} {
@@ -299,4 +302,9 @@
 .rstudio-themes-dark .{{ThemeResources.toolbarButton}} {
     background-color: #383838;
     border-color: #383838;
+}
+
+/* pestaña seleccionada destacada */
+.rstudio-highlight-active-tabs .rstudio-themes-dark .docTabPanel .gwt-TabLayoutPanelTab-selected::before {
+  color: #764a8e;
 }

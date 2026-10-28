@@ -108,9 +108,12 @@ archivo_permutacion <- function(app = ruta_rstudio()) {
   }
 
   hash <- sub("\\.cache\\.js$", "", basename(encontrado))
-  sm <- file.path(app, "www-symbolmaps", paste0(hash, ".symbolMap"))
+  # Desde 2026.10 RStudio envía el symbolMap comprimido (.symbolMap.gz);
+  # antes iba plano. readLines() descomprime solo, así que sirven ambos.
+  sm <- file.path(app, "www-symbolmaps", paste0(hash, c(".symbolMap", ".symbolMap.gz")))
+  sm <- sm[file.exists(sm)]
 
-  list(js = encontrado, symbolmap = if (file.exists(sm)) sm else NA_character_,
+  list(js = encontrado, symbolmap = if (length(sm)) sm[1] else NA_character_,
        hash = hash)
 }
 
@@ -142,7 +145,9 @@ getters_de_string <- function(js) {
 # Entradas del symbolMap que corresponden a getters de CssResource.
 # Formato: símbolo, jsniIdent, claseJava, miembro, archivo, línea, fragmento
 getters_de_css <- function(symbolmap) {
-  lineas <- readLines(symbolmap, warn = FALSE)
+  con <- if (grepl("\\.gz$", symbolmap)) gzfile(symbolmap, "rt") else file(symbolmap, "rt")
+  lineas <- readLines(con, warn = FALSE)
+  close(con)
   lineas <- lineas[grepl("ClientBundleGenerator", lineas, fixed = TRUE)]
   lineas <- lineas[grepl("()Ljava/lang/String;", lineas, fixed = TRUE)]
 
