@@ -3228,7 +3228,10 @@ input[type="checkbox"]:focus-visible {
     border-color: #383838;
 }
 
-/* pestaña seleccionada destacada */
+/* pestaña seleccionada destacada: la barra de acento de arriba.
+   RStudio la dibuja con el borde del pseudo-elemento ::before (no tiene
+   texto), así que el color va en border-color; `color` no tenía efecto. El
+   propio RStudio la pone en #4586e2 con esta misma especificidad. */
 .rstudio-highlight-active-tabs .rstudio-themes-dark .docTabPanel .gwt-TabLayoutPanelTab-selected::before {
-  color: #764a8e;
+  border-color: #764a8e !important;
 }
