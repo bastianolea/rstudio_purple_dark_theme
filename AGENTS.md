@@ -183,6 +183,104 @@ y `.rstheme_center`— y además gana en especificidad (1-1-0) contra los
   instalaciones sin `www-symbolmaps` (RStudio Server o instalaciones
   recortadas). Hoy `mapa_clases()` falla con un mensaje claro en ese caso.
 
+## Flujo para pedidos de cambios al tema
+
+Los pedidos típicos son del tipo "tal elemento se ve sin tema", "este borde
+debería ser #151515" o "esto debería tener el color de aquello". El usuario
+suele pegar las clases o el HTML del elemento, copiados del inspector. El flujo:
+
+1. **Identificar de qué parte viene el elemento**, porque cada una se
+   resuelve de otra forma:
+
+   | Origen               | Señales en las clases                  | Selector a usar             |
+   |----------------------|----------------------------------------|-----------------------------|
+   | Editor (ace)         | `ace_*`                                | `.ace_*`                    |
+   | Chrome GWT           | `GXXXXXXX..` ofuscadas, `gwt-*`        | `{{Recurso.miembro}}`, ids  |
+   | Posit Assistant      | Tailwind (`flex`, `px-1`, `bg-muted`…) | `[data-slot=...]`, ARIA     |
+   | Terminal             | `xterm*`                               | `.xterm*`                   |
+
+2. **Buscar un selector estable, nunca usar las clases pegadas tal cual**
+   (salvo las de la lista pública del contrato de temas).
+   - Chrome GWT: `buscar_clase("GXXXXXXXJX")` da el nombre semántico,
+     `buscar_miembro("patron")` busca por nombre y `css_rstudio("Recurso.miembro")`
+     confirma con el CSS propio de RStudio que es el elemento correcto. Tener
+     en cuenta las trampas de arriba (sufijos que se desplazan, `#rstudio_*`
+     que no son la caja visible).
+   - Posit Assistant: ver la sección siguiente.
+
+3. **Escribir la regla en la fuente**: `05-estable.css` si usa selectores
+   estables (ids, `data-slot`, `gwt-*`) y `06-chrome.css` si usa tokens
+   `{{...}}`. Un comentario por regla que diga qué elemento arregla y, si no es
+   obvio, por qué la regla es así. Lo nuevo va al final del bloque relacionado.
+   Solo tocar `fuente/light/` si el pedido es para el tema claro.
+
+4. **Construir y verificar** con el bloque de la sección "Verificación" (abajo).
+   Basta con construir el tema que se tocó. El agente no puede instalar: al
+   terminar, decirle al usuario que corra `aplicar.R` y que no se ha visto el
+   resultado en pantalla.
+
+5. **Iterar con lo que el usuario ve.** El primer intento rara vez queda
+   perfecto. Con cada corrección, ajustar la regla existente en vez de agregar
+   otra que la contradiga.
+
+### Posit Assistant
+
+La interfaz de Posit Assistant es una app web (React + Tailwind) que corre
+dentro de RStudio. El `.rstheme` se inyecta también ahí, así que se puede
+tematizar desde `05-estable.css`. En modo oscuro su raíz lleva la clase
+`.dark`, que sirve de prefijo para todas sus reglas.
+
+- **No usar las clases de Tailwind** (`bg-muted/30`, `px-1`…): cambian
+  con cada versión del asistente y además se comparten entre muchos elementos.
+  Usar `data-slot`, `data-state`, `data-testid`, `role` o `aria-label`.
+- **El bundle está en disco** y es la forma más rápida de ver el DOM real,
+  sin pedirle al usuario que abra el inspector:
+
+  ```bash
+  ls ~/.local/share/rstudio/pai/versions/            # usar la más reciente
+  grep -l "texto-de-una-clase" ~/.local/share/rstudio/pai/versions/<ver>/dist/client/*.js
+  ```
+
+  El `.js` está minificado en una línea, así que `grep -o` con contexto largo
+  falla. Para extraer un fragmento alrededor de una clase pegada por el
+  usuario, usar Python:
+
+  ```bash
+  python3 -c "s=open('main.XXXX.js').read(); i=s.find('conversation-tabs-viewport'); print(s[i-2500:i+3000])"
+  ```
+
+  En el JSX compilado se ven los `className` de cada rama (seleccionada / no
+  seleccionada, horizontal / vertical) y los atributos `data-slot` y
+  `data-state` del elemento.
+- **El elemento que pega el usuario suele ser un contenedor.** Muchos
+  componentes tienen un envoltorio invisible (`role="presentation"`, `absolute
+  inset-0`, `electrobun-webkit-app-region-*`) y la caja visible es un hijo con
+  `data-slot`. Confirmarlo en el bundle.
+- **Fijarse en cómo Tailwind dibuja cada cosa**, porque la regla tiene que
+  actuar sobre lo mismo:
+  - Líneas como `shadow-[inset_0_-1px_0_var(--border)]` son `box-shadow`, no
+    bordes: se reemplazan con `box-shadow`.
+  - `before:`/`after:` son pseudo-elementos: un velo `before:bg-foreground/4`
+    se pinta sobre `::before` y tapa el fondo del elemento, así que hay que
+    reemplazarlo ahí también. Los `hover:before:` se pierden al poner un
+    color sólido: reponer el hover con `:hover::before`.
+  - `border-transparent` o `border-x border-t` explican bordes faltantes:
+    Posit cuenta con que otra capa dibuje esa línea, y al poner fondos sólidos
+    hay que dibujarla en el elemento.
+- Las utilidades de Tailwind tienen especificidad baja, pero algunas vienen
+  con variables CSS y estados. Usar `!important` en estas reglas, como en las
+  existentes.
+- Paleta usada para imitar RStudio en el tema oscuro:
+
+  | Elemento                                        | Color     |
+  |-------------------------------------------------|-----------|
+  | Barra de pestañas y pestañas no seleccionadas   | `#282828` |
+  | Pestaña seleccionada y barra superior (topbar)  | `#383838` |
+  | Hover de pestaña no seleccionada                | `#303030` |
+  | Fondo del panel de conversación                 | `#181818` |
+  | Líneas divisorias                               | `#111111` |
+  | Borde de pestañas no seleccionadas              | `#151515` |
+
 ## Verificación después de tocar la fuente
 
 ```r

@@ -150,15 +150,60 @@ input[type="checkbox"]:focus-visible {
     border-color: #352f38;
 }
 
-/* Posit Assistant: barra superior */
+/* Posit Assistant: barra superior, del color de la pestaña seleccionada
+   porque queda justo debajo y se funde con ella */
 .dark [data-slot=topbar] {
-    background-color: #282828 !important;
+    background-color: #383838 !important;
     border-bottom: solid 1px #111111 !important;
 }
 
 /* Posit Assistant: panel de modelos */
 .dark [data-slot=dropdown-menu-content] {
     background-color: #222222;
+}
+
+/* Posit Assistant: barra de pestañas de conversaciones, igual que la barra
+   superior. La línea inferior es un box-shadow inset, no un borde. */
+.dark [data-slot=conversation-tabs] {
+    background-color: #282828 !important;
+    box-shadow: inset 0 -1px 0 #111111 !important;
+}
+
+/* Posit Assistant: pestaña activa, con el color de las pestañas seleccionadas
+   de RStudio. El ::after tapa la línea inferior de la barra. */
+.dark [data-slot=conversation-tab][data-state=active] {
+    background-color: #383838 !important;
+    border-color: #111111 !important;
+}
+
+.dark [data-slot=conversation-tab][data-state=active]::after {
+    background-color: #383838 !important;
+}
+
+/* Posit Assistant: pestañas no seleccionadas, del mismo color que la barra.
+   Posit las pinta con un velo semitransparente en el ::before; se reemplaza
+   por un color sólido y se deja un hover apenas más claro. */
+.dark [data-slot=conversation-tab][data-state=inactive],
+.dark [data-slot=conversation-tab][data-state=inactive]::before {
+    background-color: #282828 !important;
+}
+
+.dark [data-slot=conversation-tab][data-state=inactive]:hover::before {
+    background-color: #303030 !important;
+}
+
+/* Posit Assistant: borde de las pestañas no seleccionadas, que Posit deja
+   transparente */
+.dark [data-slot=conversation-tab][data-state=inactive] {
+    border-color: #151515 !important;
+}
+
+/* Posit Assistant: borde inferior de las pestañas no seleccionadas. Posit no
+   les pone border-bottom: cuenta con que se vea la línea de la barra, pero el
+   fondo sólido de la pestaña la tapa. Se dibuja como box-shadow inset, igual
+   que la línea de la barra, para no cambiar el alto */
+.dark [data-slot=conversation-tab][data-state=inactive] {
+    box-shadow: inset 0 -1px 0 #111111 !important;
 }
 
 /* OVERRIDE de 02-editor.css: fondo de Posit Assistant */

@@ -4,7 +4,7 @@
 /* rs-theme-is-dark: FALSE */
 
 /* Generado por construir_tema("light") desde fuente/light/ — no editar a mano. */
-/* RStudio 2026.10.0+233, prefijo de ofuscación GCOP2I3B. */
+/* RStudio 2026.11.0+203, prefijo de ofuscación GDL1UFQB. */
 
 
 .ace_gutter {
@@ -837,26 +837,26 @@
 
 
 /* color lateral de mensajes */
-.rstudio-themes-default .GCOP2I3BKI {
+.rstudio-themes-default .GDL1UFQBKI {
     border-left: 2px solid #8e5fad;
 }
 
 /* color línea lateral de warnings */
-.rstudio-themes-default .GCOP2I3BMI {
+.rstudio-themes-default .GDL1UFQBMI {
     border-left: 2px solid #dc66b1;
 }
 
 /* texto warnings */
-.rstudio-themes-default .GCOP2I3BBJ {
+.rstudio-themes-default .GDL1UFQBBJ {
     color: #d057a3;
 }
 
 /* color línea lateral de errores */
-.rstudio-themes-default .GCOP2I3BJI {
+.rstudio-themes-default .GDL1UFQBJI {
     border-left: 2px solid #cd1c69;
 }
 
 /* texto de errores */
-.rstudio-themes-default .GCOP2I3BGI {
+.rstudio-themes-default .GDL1UFQBGI {
     color: #c01a62;
 }

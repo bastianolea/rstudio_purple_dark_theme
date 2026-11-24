@@ -11,7 +11,5 @@ source("R/doctor.R")
 
 # doctor()
 
-construir_tema("dark", instalar = TRUE)
 construir_tema("light", instalar = TRUE)
-
-# buscar_clase("GCOP2I3BHW")
+construir_tema("dark", instalar = TRUE)

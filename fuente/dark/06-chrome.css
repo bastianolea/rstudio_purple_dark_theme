@@ -12,7 +12,7 @@
        .{{ThemeResources.windowFrameObject}}
 
    y `construir_tema()` lo reemplaza por la clase real de la versión de
-   RStudio instalada (p. ej. .GCOP2I3BJX). Para averiguar el nombre de un elemento
+   RStudio instalada (p. ej. GXXXXXXXJX). Para averiguar el nombre de un elemento
    nuevo:
 
        source("R/clases.R"); source("R/doctor.R")
